@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+
+# Xcode
+xcuserdata/
+DerivedData/
+build/
+*.xcresult
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Verification output
+Verification/results/
+
+# Gateway (Cloudflare Workers)
+node_modules/
+.wrangler/
+.dev.vars*
+.env
+.env.*
+
+# Secrets
+*.p8
+*.p12
+*.cer
+*.mobileprovision

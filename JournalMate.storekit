@@ -1,0 +1,143 @@
+{
+  "identifier" : "9D3C1E2A",
+  "nonRenewingSubscriptions" : [],
+  "products" : [],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "ja_JP",
+    "_storefront" : "JPN",
+    "_storeKitErrors" : []
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21000001",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "JournalMate プラン",
+          "locale" : "ja"
+        },
+        {
+          "description" : "",
+          "displayName" : "JournalMate Plans",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "JournalMate Plans",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "2980",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6700000001",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Claude Opus で、Pro の 2 倍使えます",
+              "displayName" : "Max 月額",
+              "locale" : "ja"
+            },
+            {
+              "description" : "Claude Opus with twice the usage of Pro",
+              "displayName" : "Max Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "app.journalmate.max.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Max Monthly",
+          "subscriptionGroupID" : "21000001",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : []
+        },
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "29800",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6700000002",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Claude Opus で、Pro の 2 倍使えます",
+              "displayName" : "Max 年額",
+              "locale" : "ja"
+            },
+            {
+              "description" : "Claude Opus with twice the usage of Pro",
+              "displayName" : "Max Annual",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "app.journalmate.max.annual",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Max Annual",
+          "subscriptionGroupID" : "21000001",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : []
+        },
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "770",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "6700000003",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Claude Sonnet で AI の全機能が使えます",
+              "displayName" : "Pro 月額",
+              "locale" : "ja"
+            },
+            {
+              "description" : "Every AI feature, powered by Claude Sonnet",
+              "displayName" : "Pro Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "app.journalmate.pro.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Pro Monthly",
+          "subscriptionGroupID" : "21000001",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : []
+        },
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "7700",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "6700000004",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Claude Sonnet で AI の全機能が使えます",
+              "displayName" : "Pro 年額",
+              "locale" : "ja"
+            },
+            {
+              "description" : "Every AI feature, powered by Claude Sonnet",
+              "displayName" : "Pro Annual",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "app.journalmate.pro.annual",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Pro Annual",
+          "subscriptionGroupID" : "21000001",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : []
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

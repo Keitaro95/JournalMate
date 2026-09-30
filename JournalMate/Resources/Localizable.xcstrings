@@ -1,0 +1,4191 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "Tap to copy your user ID. Include it when you contact us." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タップでユーザー ID をコピーします。お問い合わせの際に添えてください。"
+          }
+        }
+      }
+    },
+    "User ID" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ユーザー ID"
+          }
+        }
+      }
+    },
+    "’s" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "の"
+          }
+        }
+      }
+    },
+    "(choose one Notes folder)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "（メモ.app のフォルダを 1 つ選ぶ）"
+          }
+        }
+      }
+    },
+    "%@  %@" : {
+      "shouldTranslate" : false
+    },
+    "%@ (%@)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@（%2$@）"
+          }
+        }
+      }
+    },
+    "%@ / %@" : {
+      "shouldTranslate" : false
+    },
+    "%@ / month" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ / 月"
+          }
+        }
+      }
+    },
+    "%@ / year" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ / 年"
+          }
+        }
+      }
+    },
+    "%@ is a Pro feature" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@は Pro の機能です"
+          }
+        }
+      }
+    },
+    "%@/%@/" : {
+      "shouldTranslate" : false
+    },
+    "%@xx" : {
+      "shouldTranslate" : false
+    },
+    "%lld" : {
+      "shouldTranslate" : false
+    },
+    "%lld left" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 回"
+          }
+        }
+      }
+    },
+    "%lld00s" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld00番台"
+          }
+        }
+      }
+    },
+    "%lldk" : {
+      "shouldTranslate" : false
+    },
+    "%lldk / %lldk" : {
+      "shouldTranslate" : false
+    },
+    "•" : {
+      "shouldTranslate" : false
+    },
+    "`journalmate-backup.sqlite` is for restoring into the JournalMate app (Settings > Restore from Backup). Keep it together with this folder." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "`journalmate-backup.sqlite` は JournalMate アプリに復元するためのファイルです（設定 > バックアップから復元）。このフォルダと一緒に保管してください。"
+          }
+        }
+      }
+    },
+    "^[%lld item](inflect: true)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 件"
+          }
+        }
+      }
+    },
+    "^[%lld result](inflect: true)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 件"
+          }
+        }
+      }
+    },
+    "1      1      5      2\n│      │      │      └ Insurance  level 3\n│      │      └─────── Travel     level 2\n│      └────────────── Life       level 1\n└───────────────────── Areas      PARA" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1      1      5      2\n│      │      │      └ 保険   第3階層\n│      │      └─────── 旅行   第2階層\n│      └────────────── 生活   第1階層\n└───────────────────── Areas  PARA層"
+          }
+        }
+      }
+    },
+    "3      1      5      2\n│      │      │      └ Insurance  level 3\n│      │      └─────── Travel     level 2\n│      └────────────── Life       level 1\n└───────────────────── Areas      PARA" : {
+
+    },
+    "7 days free" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7日間無料"
+          }
+        }
+      }
+    },
+    "7 days free. Every AI feature with Claude Haiku, up to a small daily limit" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7 日間無料。AI の機能をすべて Claude Haiku で。1 日の利用量は少なめ"
+          }
+        }
+      }
+    },
+    "7 days free. Every feature, with AI powered by Claude Haiku" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7 日間無料。すべての機能を使えます（AI は Claude Haiku）"
+          }
+        }
+      }
+    },
+    "7-Day Free Trial" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7 日間の無料トライアル"
+          }
+        }
+      }
+    },
+    "2025" : {
+      "shouldTranslate" : false
+    },
+    "3152_202609191330.md" : {
+      "shouldTranslate" : false
+    },
+    "A place for raw data: expert information, links, and sources. Originals are never rewritten" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生データ置き場。専門家の情報・リンク・情報源など。原本は書き換えません"
+          }
+        }
+      }
+    },
+    "About Me" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自分について"
+          }
+        }
+      }
+    },
+    "About This App" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアプリの説明"
+          }
+        }
+      }
+    },
+    "About This Design" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この設計について"
+          }
+        }
+      }
+    },
+    "Add" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "追加"
+          }
+        }
+      }
+    },
+    "Add Subfolder" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブフォルダを追加"
+          }
+        }
+      }
+    },
+    "AI asks one question at a time and draws out what's on your mind. No blank page to face." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AIがひとつずつ問いかけて、考えていることを引き出します。白紙に向き合う必要はありません。"
+          }
+        }
+      }
+    },
+    "AI journaling left this month" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI での記録（今月の残り）"
+          }
+        }
+      }
+    },
+    "AI replies aren't available right now. You can still save what you wrote as a journal." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "いまはAIの返答を使えません。書いた内容はそのままジャーナルとして保存できます。"
+          }
+        }
+      }
+    },
+    "AI summarizes the conversation and suggests where it belongs. One tap saves it." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "会話の要約も保存先も、AIが提案します。タップひとつで保存。"
+          }
+        }
+      }
+    },
+    "AI usage today" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日の AI 利用"
+          }
+        }
+      }
+    },
+    "All" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべて"
+          }
+        }
+      }
+    },
+    "All AI features are available with Claude Opus. There are daily and monthly usage limits, twice those of Pro." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claude Opus で AI の機能がすべて使えます。1 日と 1 か月の利用量に上限があり、Pro の 2 倍です。"
+          }
+        }
+      }
+    },
+    "All AI features are available with Claude Sonnet. There are daily and monthly usage limits. If you reach them often, Max offers twice the usage." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claude Sonnet で AI の機能がすべて使えます。1 日と 1 か月の利用量に上限があります。よく当たるなら、Max で 2 倍使えます。"
+          }
+        }
+      }
+    },
+    "All AI features are available. There is a daily usage limit, but normal use won't reach it." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI の機能がすべて使えます。1 日あたりの利用量に上限がありますが、普通の使い方では当たりません。"
+          }
+        }
+      }
+    },
+    "Already imported" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取り込み済みだった"
+          }
+        }
+      }
+    },
+    "Already used" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用済み"
+          }
+        }
+      }
+    },
+    "An ongoing responsibility at work" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仕事でずっと続く責任"
+          }
+        }
+      }
+    },
+    "Annual" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "年額"
+          }
+        }
+      }
+    },
+    "App Attest is not available on this device" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この端末では App Attest を使えません"
+          }
+        }
+      }
+    },
+    "Ask Where to Save" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存先を尋ねる"
+          }
+        }
+      }
+    },
+    "Authentication failed. Check your subscription status (401)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "認証に失敗しました。購読の状態を確認してください（401）"
+          }
+        }
+      }
+    },
+    "Automatic journal extraction" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナルの自動抽出"
+          }
+        }
+      }
+    },
+    "Available in Japanese or English. Choose your preferred language in Settings > General > Language & Region." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日本語または英語に対応しています。設定→一般→言語と地域 で優先する言語を選んでみてください"
+          }
+        }
+      }
+    },
+    "Available once there is at least one raw data or journal note in this folder." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このフォルダに生データかジャーナルが 1 件でもあると使えます。"
+          }
+        }
+      }
+    },
+    "Backup" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バックアップ"
+          }
+        }
+      }
+    },
+    "Based on: %lld raw data" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "材料: 生データ %lld 件"
+          }
+        }
+      }
+    },
+    "Based on: %lld raw data, %lld journals (%@ – %@)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "材料: 生データ %1$lld 件・ジャーナル %2$lld 件（%3$@ 〜 %4$@）"
+          }
+        }
+      }
+    },
+    "Before You Start" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先に知っておくこと"
+          }
+        }
+      }
+    },
+    "Better value than monthly" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "月額よりお得"
+          }
+        }
+      }
+    },
+    "Billing Is Not Set Up Yet" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "課金はまだ設定されていません"
+          }
+        }
+      }
+    },
+    "Billing Period" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支払い周期"
+          }
+        }
+      }
+    },
+    "Blends raw data (life principles and direction) with journals (your own records), in date order, and the AI writes out your patterns and the path to head toward. Originals are never rewritten." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生データ（人生の指針・方向性）とジャーナル（自分の記録）を日付順に調合して、自分の傾向と向かうべき道を AI が書き出します。原本は書き換えません。"
+          }
+        }
+      }
+    },
+    "Blends your raw data (life principles and direction) with your journals, and writes out your patterns and the path to head toward" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生データ（人生の指針・方向性）とジャーナルを調合して、自分の傾向と向かうべき道を書き出します"
+          }
+        }
+      }
+    },
+    "Body (Markdown)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本文（Markdown）"
+          }
+        }
+      }
+    },
+    "Body text is never rewritten. Only the location and layer change." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本文は書き換えません。動かすのは置き場所と層だけです。"
+          }
+        }
+      }
+    },
+    "Books" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "読書"
+          }
+        }
+      }
+    },
+    "Both show a confirmation screen first. Nothing moves until you approve." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "どちらも確認画面を経由します。承認するまで 1 件も動きません。"
+          }
+        }
+      }
+    },
+    "Bulk inbox sorting" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "受信箱の一括分類"
+          }
+        }
+      }
+    },
+    "Bulk sorting has no free tier. It can clear hundreds of memos in one go, so it is part of Pro. Without a subscription, you can still move memos one at a time from the Folders screen." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一括分類に無料枠はありません。ここは 1 回で数百件が片づく機能なので、Pro の中に置いています。契約しなくても、フォルダ画面から 1 件ずつ手で動かせます。"
+          }
+        }
+      }
+    },
+    "Calendar" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カレンダー"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンセル"
+          }
+        }
+      }
+    },
+    "Cancel anytime" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "いつでも解約できます"
+          }
+        }
+      }
+    },
+    "Category" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分類"
+          }
+        }
+      }
+    },
+    "Certification exam" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "資格試験"
+          }
+        }
+      }
+    },
+    "Change Plan" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プランを変更"
+          }
+        }
+      }
+    },
+    "Change to %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@に変更"
+          }
+        }
+      }
+    },
+    "Chat History" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チャット履歴"
+          }
+        }
+      }
+    },
+    "Chat history stays on this device and isn't included in backups. To keep a conversation, save it to your journal." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チャット履歴はこの端末の中だけに保存され、バックアップには含まれません。残したい対話はジャーナルに保存してください。"
+          }
+        }
+      }
+    },
+    "Choose \"Creation Date\", not \"Last Modified Date\"" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「変更日」ではなく「作成日」を選ぶ"
+          }
+        }
+      }
+    },
+    "Choose another place or edit…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "別の場所を選ぶ・内容を直す…"
+          }
+        }
+      }
+    },
+    "Choose Folder" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォルダを選ぶ"
+          }
+        }
+      }
+    },
+    "Choose the Exported Folder to Import" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書き出したフォルダを選んで取り込む"
+          }
+        }
+      }
+    },
+    "Choose where to save" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存先を選ぶ"
+          }
+        }
+      }
+    },
+    "Choose Your Plan" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プランを選ぶ"
+          }
+        }
+      }
+    },
+    "Claude declined to respond to this content. %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この内容には応答できないと判断されました。%@"
+          }
+        }
+      }
+    },
+    "Claude Haiku" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claude Haiku"
+          }
+        }
+      }
+    },
+    "Claude Opus" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claude Opus"
+          }
+        }
+      }
+    },
+    "Claude Opus, the most capable model, with twice the usage of Pro" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最上位モデル Claude Opus を、Pro の 2 倍の量まで"
+          }
+        }
+      }
+    },
+    "Claude Sonnet" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claude Sonnet"
+          }
+        }
+      }
+    },
+    "Close" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "閉じる"
+          }
+        }
+      }
+    },
+    "Code" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コード"
+          }
+        }
+      }
+    },
+    "Compared with My Principles" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "指針と照らして"
+          }
+        }
+      }
+    },
+    "Contact Us" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お問い合わせ"
+          }
+        }
+      }
+    },
+    "Continue" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "続ける"
+          }
+        }
+      }
+    },
+    "Continue for Free" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料で始める"
+          }
+        }
+      }
+    },
+    "Conversations with AI" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI との対話"
+          }
+        }
+      }
+    },
+    "Cooking" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "料理"
+          }
+        }
+      }
+    },
+    "Copied" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コピーしました"
+          }
+        }
+      }
+    },
+    "Could not extract a structured result" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "構造化された結果を取り出せませんでした"
+          }
+        }
+      }
+    },
+    "Could not interpret the response" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "応答を解釈できませんでした"
+          }
+        }
+      }
+    },
+    "Could Not Open the Database" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データベースを開けませんでした"
+          }
+        }
+      }
+    },
+    "Could not open the database: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DB を開けませんでした: %@"
+          }
+        }
+      }
+    },
+    "Could not prepare a session" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "セッションを準備できませんでした"
+          }
+        }
+      }
+    },
+    "Could not read" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "読めなかった"
+          }
+        }
+      }
+    },
+    "Could not start the free trial (%lld)." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料トライアルを開始できませんでした（%lld）。"
+          }
+        }
+      }
+    },
+    "Could not verify this app with Apple (App Attest %lld). Please try again later." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple でアプリの確認ができませんでした（App Attest %lld）。しばらくしてからもう一度お試しください。"
+          }
+        }
+      }
+    },
+    "Couldn't Load Available Plans" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入できるプランが取得できませんでした"
+          }
+        }
+      }
+    },
+    "Couldn't tell which folder. Tap a candidate, or choose another place." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "どのフォルダか分かりませんでした。候補を押すか、「別の場所を選ぶ」から選んでください。"
+          }
+        }
+      }
+    },
+    "Create New" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しく作る"
+          }
+        }
+      }
+    },
+    "Creation Date" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "作成日"
+          }
+        }
+      }
+    },
+    "Current · %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "利用中・%@"
+          }
+        }
+      }
+    },
+    "Current Plan" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "利用中"
+          }
+        }
+      }
+    },
+    "Custom" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カスタム"
+          }
+        }
+      }
+    },
+    "Custom Format" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カスタム形式"
+          }
+        }
+      }
+    },
+    "Daily and monthly usage limits" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 日・月の利用量に上限あり"
+          }
+        }
+      }
+    },
+    "Data" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データ"
+          }
+        }
+      }
+    },
+    "Date" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日付"
+          }
+        }
+      }
+    },
+    "Date Format" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "形式"
+          }
+        }
+      }
+    },
+    "Date in file name" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイル名の日付"
+          }
+        }
+      }
+    },
+    "Deciding the release date. I think we could have settled it in advance." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リリース日を決めるのに時間がかかった。事前に決めておけた気がする。"
+          }
+        }
+      }
+    },
+    "Deciding things before the meeting" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "会議の前に決めておく"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "削除"
+          }
+        }
+      }
+    },
+    "Delete Key" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キーを削除"
+          }
+        }
+      }
+    },
+    "Deleting the app deletes your journals" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリを削除するとジャーナルも消えます"
+          }
+        }
+      }
+    },
+    "Destination" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配置先"
+          }
+        }
+      }
+    },
+    "Divide by topics you care about, like life, travel, or relationships. Optional." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生活・旅行・恋愛のように、自分が関心を持っている話題で区切ります。任意です。"
+          }
+        }
+      }
+    },
+    "Don't save" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存しない"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完了"
+          }
+        }
+      }
+    },
+    "Draw Lessons from Here" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ここから教訓を取り出す"
+          }
+        }
+      }
+    },
+    "Drawing on your past journals" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "過去のジャーナルから引き出す"
+          }
+        }
+      }
+    },
+    "Edit" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編集"
+          }
+        }
+      }
+    },
+    "Error" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラー"
+          }
+        }
+      }
+    },
+    "Every AI feature, powered by Claude Sonnet" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI の機能をすべて。Claude Sonnet で動きます"
+          }
+        }
+      }
+    },
+    "Every journal lines up by day. See at a glance what you thought and when." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナルは日付ごとに並びます。いつ何を考えていたか、ひと目で見返せます。"
+          }
+        }
+      }
+    },
+    "Every plan includes every feature. Max is for people who reach Pro's monthly limit or want to use AI more." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "どのプランでもすべての機能が使えます。Max は、Pro の月の上限に当たる人や、AI をもっと使いたい人向けです。"
+          }
+        }
+      }
+    },
+    "Everyday journal" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ふつうのジャーナル"
+          }
+        }
+      }
+    },
+    "Everyday notes go in Journal; everything else is sorted into Projects, Areas, Resources, and Archives, so you always know where to look." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ふだんの日記は Journal へ。それ以外は Projects・Areas・Resources・Archives に分かれるので、どこを見ればいいか迷いません。"
+          }
+        }
+      }
+    },
+    "Everything goes under %@ / %@ as raw data (original, unprocessed). You can move things later in the Folders screen. The body text is never rewritten." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべて %1$@ / %2$@ の下に生データ（原本・未加工）として入ります。分類は後からフォルダ画面で動かせます。本文は書き換えません。"
+          }
+        }
+      }
+    },
+    "Existing" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "既存"
+          }
+        }
+      }
+    },
+    "Export Backup (.zip)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バックアップを書き出す（.zip）"
+          }
+        }
+      }
+    },
+    "Export date used instead" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書き出した日で代用"
+          }
+        }
+      }
+    },
+    "Exporting…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書き出し中…"
+          }
+        }
+      }
+    },
+    "Failed to prepare SQL: %@\n%@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SQL の準備に失敗: %1$@\n%2$@"
+          }
+        }
+      }
+    },
+    "Failed to run SQL: %@\n%@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SQL の実行に失敗: %1$@\n%2$@"
+          }
+        }
+      }
+    },
+    "File" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイル"
+          }
+        }
+      }
+    },
+    "File creation date (the export date)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルの作成日（＝書き出した日）"
+          }
+        }
+      }
+    },
+    "File modification date (the export date)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルの更新日（＝書き出した日）"
+          }
+        }
+      }
+    },
+    "File Name" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイル名"
+          }
+        }
+      }
+    },
+    "File Names" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイル名"
+          }
+        }
+      }
+    },
+    "Find Notes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メモを検索"
+          }
+        }
+      }
+    },
+    "Finished and stored" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "終了・保管"
+          }
+        }
+      }
+    },
+    "Folder" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォルダ"
+          }
+        }
+      }
+    },
+    "Folders" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォルダ"
+          }
+        }
+      }
+    },
+    "Folders and journals in the app are replaced with the contents of the backup. Anything written after the backup was made will be lost. Chat history on this device is kept." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリ内のフォルダ・ジャーナルが、バックアップの内容に置き換わります。バックアップより後に書いたものは失われます。この端末のチャット履歴はそのまま残ります。"
+          }
+        }
+      }
+    },
+    "Folders Built on PARA" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PARAで整理されたフォルダ"
+          }
+        }
+      }
+    },
+    "Format Date" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日付をフォーマット"
+          }
+        }
+      }
+    },
+    "Formatted Date" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォーマット済み日付"
+          }
+        }
+      }
+    },
+    "Free" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料"
+          }
+        }
+      }
+    },
+    "Free for %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@は無料"
+          }
+        }
+      }
+    },
+    "Free trial until %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ まで無料トライアル中"
+          }
+        }
+      }
+    },
+    "Free trial: all AI features are available with Claude Haiku until %@. There is a daily usage limit. Afterward you return to the free plan, with no charge." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料トライアル中: %@ まで、Claude Haiku で AI の機能がすべて使えます。1 日の利用量に上限があります。終わると無料プランに戻り、請求はありません。"
+          }
+        }
+      }
+    },
+    "Free trial: every feature is available, with AI powered by Claude Haiku, until %@. There is a daily usage limit. Afterward, writing journals and AI need Pro or Max. You won't be charged, and your journals stay viewable and exportable." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料トライアル中: %@ まで、すべての機能を使えます（AI は Claude Haiku）。1 日の利用量に上限があります。終了後、ジャーナルを書くことと AI には Pro か Max が必要です。請求はなく、これまでのジャーナルは見返したり書き出したりできます。"
+          }
+        }
+      }
+    },
+    "Free users can use this up to %lld times a month. You've used up this month's allowance." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料でも月 %lld 回まで使えます。今月のぶんは使い切りました。"
+          }
+        }
+      }
+    },
+    "Generate with AI" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI で生成"
+          }
+        }
+      }
+    },
+    "Generating your patterns" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自分の傾向の生成"
+          }
+        }
+      }
+    },
+    "Get Text from Input" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テキストを取得"
+          }
+        }
+      }
+    },
+    "Health" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "健康"
+          }
+        }
+      }
+    },
+    "How It Works" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "しくみ"
+          }
+        }
+      }
+    },
+    "How the Folder Structure Works" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォルダ構造のしくみ"
+          }
+        }
+      }
+    },
+    "How to Build the Shortcut" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ショートカットの作り方"
+          }
+        }
+      }
+    },
+    "iCloud Drive/NotesExport/<folder name>" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iCloud Drive/NotesExport/〈フォルダ名〉"
+          }
+        }
+      }
+    },
+    "If some note names contain / or :" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前に / や : が入るメモがあるとき"
+          }
+        }
+      }
+    },
+    "If you save each folder to NotesExport/<folder name>/, the same names appear under the inbox after import." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存先を NotesExport/〈フォルダ名〉/ に分けておくと、取り込み後も受信箱の下に同じ名前で並びます。"
+          }
+        }
+      }
+    },
+    "Import" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取り込む"
+          }
+        }
+      }
+    },
+    "Import Memos" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外部からメモを登録"
+          }
+        }
+      }
+    },
+    "Imported" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取り込んだ"
+          }
+        }
+      }
+    },
+    "Imported into:\n%@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "入れた場所:\n%@"
+          }
+        }
+      }
+    },
+    "Importing…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取り込み中…"
+          }
+        }
+      }
+    },
+    "In the Shortcuts app, just add the five actions above in order." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ショートカット.app で上の 5 つを上から並べるだけです。"
+          }
+        }
+      }
+    },
+    "Inbox" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "受信箱"
+          }
+        }
+      }
+    },
+    "Included in Every Plan" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "どのプランでも使えるもの"
+          }
+        }
+      }
+    },
+    "Input" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "入力"
+          }
+        }
+      }
+    },
+    "Inside This Folder" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このフォルダの中身"
+          }
+        }
+      }
+    },
+    "Interests and learning" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "興味・学習"
+          }
+        }
+      }
+    },
+    "Journal" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナル"
+          }
+        }
+      }
+    },
+    "Journal file names include the date and time, down to the minute." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナルは「その日その時その時間」を分まで含めた名前にします。"
+          }
+        }
+      }
+    },
+    "Journaling Happens in Conversation" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AIとの対話でジャーナリングが完結"
+          }
+        }
+      }
+    },
+    "Journaling, the calendar, folders, and export" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナル・カレンダー・フォルダ・書き出し"
+          }
+        }
+      }
+    },
+    "Journaling, the calendar, folders, and export are free. AI journaling is free up to %lld times a month." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料でもジャーナルの記録・カレンダー・フォルダ・書き出しは使えます。AI での記録は月 %lld 回まで無料です。"
+          }
+        }
+      }
+    },
+    "Journaling, the calendar, folders, and export stay free" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記録・カレンダー・フォルダ・書き出しは、これまで通り無料です"
+          }
+        }
+      }
+    },
+    "Journaling, the calendar, folders, and export stay free. Plans unlock AI conversations and more." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナル・カレンダー・フォルダ・書き出しはずっと無料。プランに入ると、AIとの対話などが使えます。"
+          }
+        }
+      }
+    },
+    "JournalMate" : {
+      "shouldTranslate" : false
+    },
+    "Journals go inside a folder. Open one, or add a subfolder." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナルはフォルダの中に置きます。フォルダを開くか、サブフォルダを追加してください。"
+          }
+        }
+      }
+    },
+    "Just talk, and it becomes that day's journal." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "話すだけで、その日のジャーナルになる。"
+          }
+        }
+      }
+    },
+    "Keep journaling with Pro" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro でジャーナルを続ける"
+          }
+        }
+      }
+    },
+    "Language" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "言語"
+          }
+        }
+      }
+    },
+    "Layer" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "層"
+          }
+        }
+      }
+    },
+    "Legal Notice (Specified Commercial Transactions Act)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "特定商取引法に基づく表記"
+          }
+        }
+      }
+    },
+    "Let's try journaling" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試しにジャーナリングしてみましょう"
+          }
+        }
+      }
+    },
+    "Let's Try Journaling" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試しにジャーナリングしてみましょう"
+          }
+        }
+      }
+    },
+    "Let's write down today" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日のことを書き留めましょう"
+          }
+        }
+      }
+    },
+    "Life" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暮らし"
+          }
+        }
+      }
+    },
+    "Loading plans…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プランを読み込み中…"
+          }
+        }
+      }
+    },
+    "Location" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存先"
+          }
+        }
+      }
+    },
+    "Locked notes, and images or attachments in note bodies, are not exported." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ロックされたメモと、本文に貼った画像・添付は書き出されません。"
+          }
+        }
+      }
+    },
+    "Look Back on the Calendar" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カレンダーで綺麗に見返せる"
+          }
+        }
+      }
+    },
+    "Looking back: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "過去の記録から探します：%@"
+          }
+        }
+      }
+    },
+    "Looking through past journals…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "過去のジャーナルを見ています…"
+          }
+        }
+      }
+    },
+    "Manage Subscription" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブスクリプションを管理"
+          }
+        }
+      }
+    },
+    "Max" : {
+      "shouldTranslate" : false
+    },
+    "Max Annual" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max 年額"
+          }
+        }
+      }
+    },
+    "Max Monthly" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max 月額"
+          }
+        }
+      }
+    },
+    "Memos in inbox" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "受信箱のメモ"
+          }
+        }
+      }
+    },
+    "Monthly" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "月額"
+          }
+        }
+      }
+    },
+    "Move ^[%lld Selected Item](inflect: true)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選んだ %lld 件を移動"
+          }
+        }
+      }
+    },
+    "Moved" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移動した"
+          }
+        }
+      }
+    },
+    "Moving house" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "引っ越し"
+          }
+        }
+      }
+    },
+    "My Patterns" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自分の傾向"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前"
+          }
+        }
+      }
+    },
+    "Name (e.g. Travel)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前（例: 旅行）"
+          }
+        }
+      }
+    },
+    "New" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新規"
+          }
+        }
+      }
+    },
+    "New Chat" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しいチャット"
+          }
+        }
+      }
+    },
+    "New Journal" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しいジャーナル"
+          }
+        }
+      }
+    },
+    "New Note" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しいノート"
+          }
+        }
+      }
+    },
+    "New path (e.g. Life/Travel/Insurance)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しいパス（例: 生活/旅行/保険）"
+          }
+        }
+      }
+    },
+    "Next" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "次へ"
+          }
+        }
+      }
+    },
+    "No AI service is available. Subscribe to Pro to use this." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI の呼び先がありません。Pro を契約するとお使いいただけます。"
+          }
+        }
+      }
+    },
+    "No chats yet" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "まだチャットはありません"
+          }
+        }
+      }
+    },
+    "No folders here yet. Folders you create in the Folders screen appear here." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この下にはまだフォルダがありません。フォルダ画面で作るとここに並びます。"
+          }
+        }
+      }
+    },
+    "No Notes on This Day" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この日の記録はありません"
+          }
+        }
+      }
+    },
+    "No notes on this day in %@." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ にはこの日の記録がありません。"
+          }
+        }
+      }
+    },
+    "No notes on this day in %@. Use the tabs above to widen the range." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ にはこの日の記録がありません。上のタブで範囲を広げられます。"
+          }
+        }
+      }
+    },
+    "No payment needed. It ends on its own after 7 days" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支払いの登録は不要。7 日後に自動で終わります"
+          }
+        }
+      }
+    },
+    "No purchases to restore were found." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "復元できる購入が見つかりませんでした。"
+          }
+        }
+      }
+    },
+    "No restore data was found. Choose a .zip exported with “Export Backup” in JournalMate." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "復元データが見つかりません。JournalMate の「バックアップを書き出す」で作った .zip を選んでください。"
+          }
+        }
+      }
+    },
+    "No subfolders" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブフォルダはありません"
+          }
+        }
+      }
+    },
+    "Not saved. You can save again anytime." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存しませんでした。いつでも保存し直せます。"
+          }
+        }
+      }
+    },
+    "Notes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メモ"
+          }
+        }
+      }
+    },
+    "Notes organized with PARA, split into raw data, journals, and your patterns." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PARA で整理し、生データ・ジャーナル・自分の傾向に分けたノート。"
+          }
+        }
+      }
+    },
+    "Notes to reread" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "読み直す記録"
+          }
+        }
+      }
+    },
+    "Nothing Here Yet" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "まだ何もありません"
+          }
+        }
+      }
+    },
+    "Nothing is kept on our servers, so they can't be recovered afterward." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サーバには保存していないため、あとから取り戻せません。"
+          }
+        }
+      }
+    },
+    "Number (optional)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "番号（任意）"
+          }
+        }
+      }
+    },
+    "Numbers Come from the Hierarchy" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "番号は階層から導かれる"
+          }
+        }
+      }
+    },
+    "occurred in frontmatter" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "frontmatter の occurred"
+          }
+        }
+      }
+    },
+    "Off" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オフ"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "Ongoing responsibilities" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "継続的な責任領域"
+          }
+        }
+      }
+    },
+    "Open a folder, then tap \"Save Here\"." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォルダを開いて「ここに保存」をタップしてください。"
+          }
+        }
+      }
+    },
+    "Organized and Saved for You" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自動で整理して保存"
+          }
+        }
+      }
+    },
+    "Original creation date restored" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "元の作成日を復元"
+          }
+        }
+      }
+    },
+    "PARA" : {
+      "shouldTranslate" : false
+    },
+    "PARA Leading Digits" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PARA の先頭桁"
+          }
+        }
+      }
+    },
+    "Past conversations will appear here." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "過去の対話がここに表示されます。"
+          }
+        }
+      }
+    },
+    "Path" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "パス"
+          }
+        }
+      }
+    },
+    "Period" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "期間"
+          }
+        }
+      }
+    },
+    "Plan" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プラン"
+          }
+        }
+      }
+    },
+    "Plans" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プラン"
+          }
+        }
+      }
+    },
+    "Privacy Policy" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プライバシーポリシー"
+          }
+        }
+      }
+    },
+    "Pro" : {
+      "shouldTranslate" : false
+    },
+    "Pro Annual" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro 年額"
+          }
+        }
+      }
+    },
+    "Pro Monthly" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro 月額"
+          }
+        }
+      }
+    },
+    "Rate limit reached. Wait a moment and try again (429)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "レート制限に達しました。少し待ってから再試行してください（429）"
+          }
+        }
+      }
+    },
+    "Raw Data" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生データ"
+          }
+        }
+      }
+    },
+    "Raw data and journals are the ingredients; your patterns are blended from them. Originals are never rewritten, so nothing is lost even if you change the PARA category later." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生データとジャーナルを材料に、自分の傾向を調合します。原本は書き換えないので、後から PARA の所属を変えても情報は失われません。"
+          }
+        }
+      }
+    },
+    "Reading %@…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ を読んでいます…"
+          }
+        }
+      }
+    },
+    "Reading directories…" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ディレクトリを読み込み中…"
+          }
+        }
+      }
+    },
+    "Reads the journals and originals from the last %lld days and sums them up under four headings: \"What kept coming up\", \"What moved forward\", \"What's stuck\", and \"Next steps\". The original notes are never rewritten." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "直近 %lld 日のジャーナルと原本を読み、「繰り返し出てきたこと」「進んだこと」「止まっていること」「次の一手」の4 つにまとめます。元の記録は書き換えません。"
+          }
+        }
+      }
+    },
+    "Reads your existing directories (%lld) first, then sorts each memo by whether it fits one of them. A new folder is created only when a memo fits nowhere." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "既存のディレクトリ（%lld 件）を先に読み込んでから、そこに収まるかどうかで振り分けます。新しいフォルダを作るのは、どこにも収まらないときだけです。"
+          }
+        }
+      }
+    },
+    "Reads your existing directory structure and sorts memos into places they fit. You review the suggestions before anything moves." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "既存のディレクトリ構造を読み込んで、そこに収まるものを振り分けます。提案を確認してから移動するので、勝手には動きません。"
+          }
+        }
+      }
+    },
+    "Recommended" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "おすすめ"
+          }
+        }
+      }
+    },
+    "Records are stored only on this device. Deleting the app deletes every journal. Export a backup from Settings now and then, and you can restore it after reinstalling." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記録はこの端末の中にだけ保存されます。アプリを削除すると、ジャーナルはすべて消えます。ときどき設定からバックアップを書き出しておけば、入れ直したあとに復元できます。"
+          }
+        }
+      }
+    },
+    "Records of a specific day and time" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "その日その時その時間の記録"
+          }
+        }
+      }
+    },
+    "Repeat Item" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繰り返し項目"
+          }
+        }
+      }
+    },
+    "Repeat with Each" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繰り返す（各項目）"
+          }
+        }
+      }
+    },
+    "Replace the current records with this backup?" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今の記録をこのバックアップで置き換えますか？"
+          }
+        }
+      }
+    },
+    "Reply with a folder name" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォルダ名で答えることもできます"
+          }
+        }
+      }
+    },
+    "Requires a plan" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プランが必要です"
+          }
+        }
+      }
+    },
+    "Rereading…" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "読み直しています…"
+          }
+        }
+      }
+    },
+    "Rereads the week's or month's journals and writes one Gold review" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "その週・その月のジャーナルを読み直し、Gold の振り返りを 1 件作ります"
+          }
+        }
+      }
+    },
+    "Restore" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "復元する"
+          }
+        }
+      }
+    },
+    "Restore from Backup" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バックアップから復元"
+          }
+        }
+      }
+    },
+    "Restore Purchases" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入を復元"
+          }
+        }
+      }
+    },
+    "Restored" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "復元しました"
+          }
+        }
+      }
+    },
+    "Restored %lld notes." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 件のノートを復元しました。"
+          }
+        }
+      }
+    },
+    "Restoring…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "復元中…"
+          }
+        }
+      }
+    },
+    "Results" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "結果"
+          }
+        }
+      }
+    },
+    "Review This Month" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今月の振り返りを作る"
+          }
+        }
+      }
+    },
+    "Review This Week" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今週の振り返りを作る"
+          }
+        }
+      }
+    },
+    "Reviews" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "振り返り"
+          }
+        }
+      }
+    },
+    "Reviews deliver fresh value every week, so they are part of Pro." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "振り返りは毎週あらためて価値が出るので、Pro の中に置いています。"
+          }
+        }
+      }
+    },
+    "Run it once per Notes folder" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メモのフォルダごとに実行する"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記録"
+          }
+        }
+      }
+    },
+    "Save as Journal" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナルとして記録"
+          }
+        }
+      }
+    },
+    "Save File" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルを保存"
+          }
+        }
+      }
+    },
+    "Save Here" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ここに保存"
+          }
+        }
+      }
+    },
+    "Save Key" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
+          }
+        }
+      }
+    },
+    "Save to Journal" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記録"
+          }
+        }
+      }
+    },
+    "Saved" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存しました"
+          }
+        }
+      }
+    },
+    "Saved to %@/%@/" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@/%2$@/ に保存しました"
+          }
+        }
+      }
+    },
+    "Saving the file will fail. Add a \"Replace Text\" action before step 4 and replace the regular expression [/:] with -." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイル保存が失敗します。④ の前に「テキストを置き換え」を挟み、正規表現 [/:] を - に置き換えてください。"
+          }
+        }
+      }
+    },
+    "Search All Notes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノートを全文検索"
+          }
+        }
+      }
+    },
+    "Searching past journals for “%@”…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "過去のジャーナルから「%@」を探しています…"
+          }
+        }
+      }
+    },
+    "See What Pro Can Do" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro でできることを見る"
+          }
+        }
+      }
+    },
+    "Send Content for AI Features" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI の機能のために内容を送信する"
+          }
+        }
+      }
+    },
+    "Sending Data to AI" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI へのデータ送信"
+          }
+        }
+      }
+    },
+    "Set (type to replace)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定済み（上書きするには入力）"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定"
+          }
+        }
+      }
+    },
+    "Settings > Backup" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定 > バックアップ"
+          }
+        }
+      }
+    },
+    "Short-term projects" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "短期企画"
+          }
+        }
+      }
+    },
+    "Skip" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スキップ"
+          }
+        }
+      }
+    },
+    "Sort by how involved you are right now, not by topic or field. The leading number becomes the file name prefix." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "話題や分野ではなく、いまの自分との関わり度合いで分ける。先頭の数字がそのままファイル名の接頭辞になります。"
+          }
+        }
+      }
+    },
+    "Sort Inbox with AI" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "受信箱を AI で分類"
+          }
+        }
+      }
+    },
+    "Sort into Existing Directories" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "既存のディレクトリに合わせて分類"
+          }
+        }
+      }
+    },
+    "Sorting… %lld / %lld" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分類中… %1$lld / %2$lld 件"
+          }
+        }
+      }
+    },
+    "Sorts imported memos in bulk to fit your existing directory structure" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取り込んだメモを、すでにあるディレクトリ構造に合わせてまとめて振り分けます"
+          }
+        }
+      }
+    },
+    "Start 7-Day Free Trial" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7日間無料で試す"
+          }
+        }
+      }
+    },
+    "Start with a free 7-day trial, or choose Pro or Max. You can change your plan anytime in Settings." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "まずは 7 日間の無料トライアル、または Pro / Max を選んでください。プランはあとから設定でいつでも変更できます。"
+          }
+        }
+      }
+    },
+    "Stays in inbox" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "受信箱のまま"
+          }
+        }
+      }
+    },
+    "Subfolders" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブフォルダ"
+          }
+        }
+      }
+    },
+    "Subscribe" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購読する"
+          }
+        }
+      }
+    },
+    "Subscribe to %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@に登録"
+          }
+        }
+      }
+    },
+    "Subscriptions are not available yet. Start with the free trial for now." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブスクリプションはまだご利用いただけません。いまは無料トライアルからお始めください。"
+          }
+        }
+      }
+    },
+    "Subscriptions renew automatically unless canceled at least 24 hours before the end of the current period, and renewals are charged to your Apple ID. You can cancel from your App Store subscriptions. The free trial does not require payment and does not renew. With a subscription, the app covers the cost of AI calls." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブスクリプションは、期間終了の 24 時間前までに解約しない限り自動で更新され、更新料金は Apple ID に請求されます。App Store のサブスクリプション設定から解約できます。無料トライアルは支払いの登録が不要で、自動更新されません。契約中は AI の呼び出しの費用をアプリが負担します。"
+          }
+        }
+      }
+    },
+    "Suggestions" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分類案"
+          }
+        }
+      }
+    },
+    "Summarize with AI" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI でまとめる"
+          }
+        }
+      }
+    },
+    "Summarizes the conversation, infers the PARA category and layer, and decides where it goes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "会話から要点をまとめ、PARA と層を推定して置き場所まで決めます"
+          }
+        }
+      }
+    },
+    "Support" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サポート"
+          }
+        }
+      }
+    },
+    "Talk about what's on your mind" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "いま考えていることを話す"
+          }
+        }
+      }
+    },
+    "Talk through what is on your mind, and it draws out what is worth writing down" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "考えていることを話すと、書くべきことを引き出してくれます"
+          }
+        }
+      }
+    },
+    "Talk with AI for a bit, then tap \"Turn into Journal\". Your first entry will be saved to today." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AIと少し話してから「ジャーナルにする」を押してください。最初のジャーナルが今日の日付で保存されます。"
+          }
+        }
+      }
+    },
+    "Talking with AI and writing journals need a plan. Your past journals are still in Calendar and Folders, and you can export them anytime." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI との対話とジャーナルを書くにはプランが必要です。これまでのジャーナルは Calendar と Folders で見返せて、いつでも書き出せます。"
+          }
+        }
+      }
+    },
+    "Tap \"Save to Journal\" to turn what you said into a journal entry, sorted into PARA automatically." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "話したことは「記録」からジャーナルになり、PARA で自動的に分類されます。"
+          }
+        }
+      }
+    },
+    "Tap \"Save to Journal\" to turn what you wrote into a journal entry. You can turn on AI conversations in Settings." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書いた内容は「記録」からジャーナルになります。AI との対話は設定から有効にできます。"
+          }
+        }
+      }
+    },
+    "Tell me one thing that happened today. Anything is fine." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日あったことを、ひとつ教えてください。どんなことでも大丈夫です。"
+          }
+        }
+      }
+    },
+    "Terms of Use" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "利用規約"
+          }
+        }
+      }
+    },
+    "Terms of Use (EULA)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appleの標準EULA(エンドユーザー使用許諾契約書)"
+          }
+        }
+      }
+    },
+    "Text" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テキスト"
+          }
+        }
+      }
+    },
+    "That sounds draining. What took up most of the meeting?" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "それは疲れますね。会議では何に一番時間がかかりましたか？"
+          }
+        }
+      }
+    },
+    "That's it for AI replies in this trial. Tap \"Turn into Journal\" to save what you wrote." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お試しでのAIの返答はここまでです。「ジャーナルにする」をタップすると、書いた内容を保存できます。"
+          }
+        }
+      }
+    },
+    "The AI talks to you with your past journals in mind, and pulls up what you did back then when you ask “What did I do last time?”" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI が過去のジャーナルを踏まえて語りかけます。「あの時どうしてたっけ」「どうしよう」と迷ったら、過去の自分の記録から引き出してくれます"
+          }
+        }
+      }
+    },
+    "The Claude API returned an error (%lld)\n%@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claude API がエラーを返しました（%1$lld）\n%2$@"
+          }
+        }
+      }
+    },
+    "The exported .txt files are dated the day you export them. Only the file name (or frontmatter) can carry the original creation date, so if you get this wrong, everything piles up on today's date in the calendar." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書き出した .txt のファイル日付は「書き出した日」になります。元のメモ作成日を運べるのはファイル名（か frontmatter）だけなので、ここを間違えると全部が今日の日付でカレンダーに積み上がります。"
+          }
+        }
+      }
+    },
+    "The free trial has already been used on this device." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この端末では無料トライアルを使用済みです。"
+          }
+        }
+      }
+    },
+    "The free trial is not available yet." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料トライアルはまだ利用できません。"
+          }
+        }
+      }
+    },
+    "The hierarchy is the real structure. The code goes at the start of each file name, so you can filter to \"only what starts with 3152\" in one step." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "実体は階層構造です。コードはファイル名の先頭に付き、「3152 で始まるものだけ」といった絞り込みを一撃で可能にします。"
+          }
+        }
+      }
+    },
+    "The meeting ran long over the release date. Next time, share a draft in advance." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リリース日の話で会議が長引いた。次からは事前に案を共有しておく。"
+          }
+        }
+      }
+    },
+    "The Notes app has no bulk export. Use a shortcut to save your notes as .txt files, then import that folder all at once." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メモ.app には一括書き出しがありません。ショートカットでメモを .txt に落としてから、そのフォルダをまとめて取り込みます。"
+          }
+        }
+      }
+    },
+    "The number is appended after %@. Leave it empty to use the next free number." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "番号は %@ の後ろに足されます。空にすると空き番号を自動で振ります。"
+          }
+        }
+      }
+    },
+    "The PARA root folder was not found" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PARA ルートが見つかりません"
+          }
+        }
+      }
+    },
+    "The Path Ahead" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "向かうべき道"
+          }
+        }
+      }
+    },
+    "The relay server is not configured (BillingConfig.gateway)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "中継サーバが設定されていません（BillingConfig.gateway）"
+          }
+        }
+      }
+    },
+    "The relay server returned an error (%lld)\n%@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "中継サーバがエラーを返しました（%1$lld）\n%2$@"
+          }
+        }
+      }
+    },
+    "The RevenueCat public key is not set (BillingConfig.revenueCatAPIKey)." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RevenueCat の公開キーが未設定です（BillingConfig.revenueCatAPIKey）。"
+          }
+        }
+      }
+    },
+    "The RevenueCat SDK is not integrated yet. Add the purchases-ios package in Xcode to enable billing." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RevenueCat SDK がまだ組み込まれていません。Xcode で purchases-ios パッケージを追加すると課金が有効になります。"
+          }
+        }
+      }
+    },
+    "The team meeting ran long and I couldn't finish my own work." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チームの会議が長引いて、自分の作業が終わらなかった。"
+          }
+        }
+      }
+    },
+    "The zip archive is damaged." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "zip が壊れています。"
+          }
+        }
+      }
+    },
+    "There are no notes in this period yet." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この期間にはまだ記録がありません。"
+          }
+        }
+      }
+    },
+    "These memos have no date in their file names. In the shortcut's \"Format Date\" action, format the Creation Date as yyyyMMddHHmm, put it at the start of the file name, and export again. Memos already imported won't be duplicated." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイル名に日付が入っていないメモです。ショートカットの「日付をフォーマット」で〈作成日〉を yyyyMMddHHmm にしてファイル名の先頭に付け、もう一度書き出してください。取り込み済みのものは重複しません。"
+          }
+        }
+      }
+    },
+    "This backup was made with a newer version of JournalMate. Update the app and try again." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このバックアップは新しいバージョンの JournalMate で作られています。アプリを更新してからもう一度お試しください。"
+          }
+        }
+      }
+    },
+    "This feature is available only with Pro." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この機能は Pro でのみ使えます。"
+          }
+        }
+      }
+    },
+    "This feature needs Pro, Max, or the free trial." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この機能は Pro・Max・無料トライアルで使えます。"
+          }
+        }
+      }
+    },
+    "This feature requires a Pro subscription" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この機能には Pro の契約が必要です"
+          }
+        }
+      }
+    },
+    "This file is not a zip archive." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このファイルは zip ではありません。"
+          }
+        }
+      }
+    },
+    "This isn't a JournalMate backup." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JournalMate のバックアップではありません。"
+          }
+        }
+      }
+    },
+    "This month" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今月"
+          }
+        }
+      }
+    },
+    "This week" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今週"
+          }
+        }
+      }
+    },
+    "This zip archive uses a format that can't be read." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この zip は読み取れない形式です。"
+          }
+        }
+      }
+    },
+    "Three Kinds of Notes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノートの 3 種類"
+          }
+        }
+      }
+    },
+    "Time of import" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取り込んだ時刻"
+          }
+        }
+      }
+    },
+    "Title" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "見出し"
+          }
+        }
+      }
+    },
+    "To get replies from AI, allow what you write to be sent to AI. You can also continue without it and just write." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AIから返事をもらうには、書いた内容をAIに送ることを許可してください。許可せずに、書くだけで進めることもできます。"
+          }
+        }
+      }
+    },
+    "Today was about how the team runs meetings." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日はチームの会議の進め方の話でした。"
+          }
+        }
+      }
+    },
+    "Today's journal" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日の記録"
+          }
+        }
+      }
+    },
+    "Trial" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "トライアル"
+          }
+        }
+      }
+    },
+    "Try Again" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "もう一度試す"
+          }
+        }
+      }
+    },
+    "Try every AI feature free for 7 days. No payment needed, and it ends on its own." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7日間、すべてのAI機能を無料で試せます。支払いは不要で、期間が終われば自動で終了します。"
+          }
+        }
+      }
+    },
+    "Try every AI feature free. No payment needed, and it ends on its own." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI の機能をすべて無料で試せます。支払いは不要で、7 日たつと自動で終わります。"
+          }
+        }
+      }
+    },
+    "Try Journaling" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナリングを体験"
+          }
+        }
+      }
+    },
+    "Turn into Journal" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナルにする"
+          }
+        }
+      }
+    },
+    "Twice the daily and monthly usage of Pro" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 日・月の利用量は Pro の 2 倍"
+          }
+        }
+      }
+    },
+    "Type" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "種類"
+          }
+        }
+      }
+    },
+    "Unchecked memos stay in the inbox. Memos the AI couldn't decide on start out unchecked." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チェックを外したメモは受信箱に残ります。AI が判断を保留したものは最初から外してあります。"
+          }
+        }
+      }
+    },
+    "Undecided" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保留"
+          }
+        }
+      }
+    },
+    "Unknown error" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不明なエラー"
+          }
+        }
+      }
+    },
+    "Unlock" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解放"
+          }
+        }
+      }
+    },
+    "Until %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@まで"
+          }
+        }
+      }
+    },
+    "Untitled chat" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無題のチャット"
+          }
+        }
+      }
+    },
+    "Up to a small daily limit" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 日の利用量に上限あり（少なめ）"
+          }
+        }
+      }
+    },
+    "Upgrade to Max" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max にアップグレード"
+          }
+        }
+      }
+    },
+    "Uses %lld raw data and %lld journals in this folder and its subfolders." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このフォルダとサブフォルダの、生データ %1$lld 件とジャーナル %2$lld 件を使います。"
+          }
+        }
+      }
+    },
+    "Weekly" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "週次"
+          }
+        }
+      }
+    },
+    "Weekly and monthly reviews" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "週次・月次の振り返り"
+          }
+        }
+      }
+    },
+    "Weekly and Monthly Reviews" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "週次・月次の振り返り"
+          }
+        }
+      }
+    },
+    "What doesn't come through" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出てこないもの"
+          }
+        }
+      }
+    },
+    "What happened today?" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日はどんな一日でしたか？"
+          }
+        }
+      }
+    },
+    "What were you thinking about today?" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日は何を考えていましたか"
+          }
+        }
+      }
+    },
+    "What You Get with Pro" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro でできること"
+          }
+        }
+      }
+    },
+    "What you talk about in Chat appears here by date." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chat 画面で話したことが、ここに日付ごとに並びます。"
+          }
+        }
+      }
+    },
+    "When you use AI features (chat, journal extraction, sorting, reviews, lesson generation, and setup suggestions), the text involved (what you write, the target memos, and folder names) is sent to Anthropic's Claude API. With a subscription or the free tier, it goes through our relay server, which does not store the content. Anthropic does not use data sent through the API to train its models." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI の機能（チャット・ジャーナル抽出・分類・振り返り・教訓の生成・初期設定の提案）を使うと、そのとき扱う文章（あなたの発言、対象のメモ、フォルダ名）が Anthropic 社の Claude API に送られます。契約中・無料枠の場合は当社の中継サーバを経由しますが、中継サーバは本文を保存しません。Anthropic は API 経由のデータをモデルの学習に使いません。"
+          }
+        }
+      }
+    },
+    "Where should I save this?" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "どのフォルダに保存しますか？"
+          }
+        }
+      }
+    },
+    "While this is off, nothing is sent from any screen. Journaling, the calendar, folders, and export keep working. You can change this in Settings at any time." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オフのあいだは、どの画面からも外部に送信しません。記録・カレンダー・フォルダ・書き出しはそのまま使えます。いつでも設定から変更できます。"
+          }
+        }
+      }
+    },
+    "Will be created in /%@/%@/%@/" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/%1$@/%2$@/%3$@/ に新規作成"
+          }
+        }
+      }
+    },
+    "Without a plan, you can still view and export your past journals" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プランが無くても、これまでのジャーナルの閲覧と書き出しはできます"
+          }
+        }
+      }
+    },
+    "Without a plan, you can view your journals in Calendar and Folders and export them. Writing journals and AI need Pro or Max." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プランが無くても、ジャーナルを Calendar と Folders で見返したり、書き出したりできます。ジャーナルを書くことと AI には Pro か Max が必要です。"
+          }
+        }
+      }
+    },
+    "Work" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仕事"
+          }
+        }
+      }
+    },
+    "Write and edit journals and notes in your own words. Past entries stay viewable and exportable without a plan" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナルやノートを自分の言葉で書いたり直したりできます。これまでの記録は、プランが無くても見返したり書き出したりできます"
+          }
+        }
+      }
+    },
+    "Write what's on your mind" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "いま考えていることを書く"
+          }
+        }
+      }
+    },
+    "Writing journals" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナルを書く"
+          }
+        }
+      }
+    },
+    "You can also search past journals. Ask something like \"What was I journaling about on this day last month?\"" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "過去のジャーナルを探すこともできます。「先月の同じ日は、何ジャーナリングしてたっけ？」"
+          }
+        }
+      }
+    },
+    "You can import memos from the Notes app or Obsidian into the inbox as raw data, all at once." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メモ.app や Obsidian のメモを、受信箱に生データとしてまとめて取り込めます。"
+          }
+        }
+      }
+    },
+    "You can look back on it anytime in Calendar." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カレンダーからいつでも見返せます。"
+          }
+        }
+      }
+    },
+    "You have reached this month's AI usage limit. It resets at the start of next month (UTC). Journaling, the calendar, and folders work as usual." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今月の AI の利用上限に達しました。来月の初め（UTC）に戻ります。それまでもジャーナル・カレンダー・フォルダはいつも通り使えます。"
+          }
+        }
+      }
+    },
+    "You have reached this month's AI usage limit. It resets at the start of next month (UTC). Journaling, the calendar, and folders work as usual. The Max plan offers twice the usage." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今月の AI の利用上限に達しました。来月の初め（UTC）に戻ります。それまでもジャーナル・カレンダー・フォルダはいつも通り使えます。Max プランなら 2 倍使えます。"
+          }
+        }
+      }
+    },
+    "You have reached today's AI usage limit (%lldk / %lldk). It resets when the date changes. Until then, journaling, the calendar, and folders work as usual." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今日の AI 利用が上限に達しました（%1$lldk / %2$lldk）。日付が変わると戻ります。それまでも、記録・カレンダー・フォルダはこれまで通り使えます。"
+          }
+        }
+      }
+    },
+    "You have used up the AI allowance for your free trial. Journaling, the calendar, and folders work as usual. To keep using AI, choose Pro or Max." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料トライアルの AI の利用枠を使い切りました。ジャーナル・カレンダー・フォルダはいつも通り使えます。AI を続けて使うには Pro か Max をお選びください。"
+          }
+        }
+      }
+    },
+    "You haven't agreed to send data to AI. Turn it on in Settings > Sending Data to AI to use this." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI へのデータ送信に同意していません。設定 > AI へのデータ送信 でオンにすると使えます。"
+          }
+        }
+      }
+    },
+    "Your first journal is ready" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最初のジャーナルができました"
+          }
+        }
+      }
+    },
+    "Your free trial has ended." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料トライアルは終了しました。"
+          }
+        }
+      }
+    },
+    "Your journals are stored only on this device. **Deleting the app deletes all of them**, and they can't be recovered.\n\nThe exported .zip holds your records as .md files in a folder hierarchy (ready for Obsidian), plus restore data for this app. Save it to the Files app or iCloud Drive. After reinstalling, choose that .zip with “Restore from Backup” to bring back your folders and journals as they were. Restoring replaces what's currently in the app. Chat history isn't included in backups." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナルはこの端末の中にだけ保存されています。**アプリを削除すると、すべて消えて元に戻せません。**\n\n書き出した .zip には、記録がフォルダ階層の .md ファイル（そのまま Obsidian で開けます）と、このアプリ用の復元データとして入っています。ファイル App や iCloud Drive に保存しておいてください。アプリを入れ直したら「バックアップから復元」でその .zip を選ぶと、フォルダ・ジャーナルが元どおりに戻ります。復元すると、アプリ内の今の記録は置き換わります。チャット履歴はバックアップに含まれません。"
+          }
+        }
+      }
+    },
+    "Your Journals Live on This iPhone" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ジャーナルはこの iPhone の中に"
+          }
+        }
+      }
+    },
+    "Your own patterns, blended from raw data and journals" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生データとジャーナルから調合した、自分の傾向"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

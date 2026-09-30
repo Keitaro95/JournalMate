@@ -1,0 +1,45 @@
+name = "journalmate-gateway"
+main = "src/index.ts"
+compatibility_date = "2026-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# DNS レコードと証明書はデプロイ時に Cloudflare が自動で作る。
+routes = [
+  { pattern = "journal-mate-api.ai-swift.com", custom_domain = true }
+]
+
+# アプリは "<TeamID>.<BundleID>" をこの値と突き合わせて検証される。
+[vars]
+APP_ID = "K85V2B647P.app.journalmate.JournalMate"
+ATTEST_MODE = "on"
+
+[[durable_objects.bindings]]
+name = "BUDGET"
+class_name = "BudgetLedger"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["BudgetLedger"]
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "f9c979458d834d0680b87cf5c58f72e7"
+
+# 秘密は wrangler secret put で入れる（このファイルには書かない）:
+#   ANTHROPIC_API_KEY / RC_SECRET_KEY / RC_WEBHOOK_SECRET
+#   SESSION_SECRET / APPLE_ROOT_CA_PEM / DEV_BYPASS_TOKEN
+
+# 回数の制限（src/config.ts の「回数の制限」）。namespace_id はアカウント内で一意な数字なら何でもよい。
+# 認証前（/v1/challenge・/v1/session）: IP ごとに 1 分 60 回
+[[unsafe.bindings]]
+name = "IP_LIMITER"
+type = "ratelimit"
+namespace_id = "1001"
+simple = { limit = 60, period = 60 }
+
+# 認証後（/v1/messages・/v1/trial/start）: 端末 ID ごとに 1 分 30 回
+[[unsafe.bindings]]
+name = "USER_LIMITER"
+type = "ratelimit"
+namespace_id = "1002"
+simple = { limit = 30, period = 60 }
