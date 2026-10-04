@@ -29,3 +29,8 @@ node_modules/
 *.p12
 *.cer
 *.mobileprovision
+
+# 社内向けの資料（docs/ は公開のサポートサイトと同じ場所なので、push しない）
+docs/plans/
+docs/uservoice/
+MARKETING.md
