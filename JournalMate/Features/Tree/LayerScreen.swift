@@ -51,7 +51,7 @@ struct LayerScreen: View {
             }
             .onDelete(perform: delete)
         }
-        .navigationTitle("\(node.code) / \(layer.title)")
+        .navigationTitle("\(node.parentID == nil ? node.para.displayTitle : node.title) / \(layer.title)")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -143,10 +143,6 @@ struct LayerScreen: View {
     }
 
     private func create() {
-        guard entitlement.isPro else {
-            paywall = .journalWrite
-            return
-        }
         do {
             let title = layer == .journal ? String(localized: "New Journal") : String(localized: "New Note")
             newNote = try store.createNote(in: node, layer: layer, title: title, body: "")

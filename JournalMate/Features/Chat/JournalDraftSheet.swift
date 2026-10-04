@@ -37,7 +37,7 @@ struct JournalDraftSheet: View {
                 Section("PARA") {
                     Picker("Category", selection: $draft.para) {
                         ForEach(Para.allCases) { para in
-                            Label("\(para.title) (\(para.subtitle))", systemImage: para.symbol)
+                            Label("\(para.displayTitle) (\(para.subtitle))", systemImage: para.symbol)
                                 .tag(para)
                         }
                     }
@@ -67,7 +67,7 @@ struct JournalDraftSheet: View {
                     Picker("Destination", selection: $selectedCode) {
                         Text("Create New").tag("")
                         ForEach(candidates) { node in
-                            Text("\(node.code)  \(node.path)").tag(node.code)
+                            Text(node.path).tag(node.code)
                         }
                     }
                     .pickerStyle(.navigationLink)
@@ -110,10 +110,9 @@ struct JournalDraftSheet: View {
     }
 
     private var destinationDescription: String {
+        // ファイル名は番号から始まるので出さない（番号は索引用で、画面には出さない）。
         if let node = nodes.first(where: { $0.code == selectedCode }) {
-            let name = ParaCode.filename(code: node.code, layer: draft.layer,
-                                         title: draft.title, occurredAt: draft.occurredAt)
-            return "\(node.path)/\(draft.layer.directoryName)/\(name)"
+            return "\(node.path)/\(draft.layer.directoryName)/"
         }
         if draft.suggestedPath.isEmpty, draft.para.acceptsNotesAtRoot {
             return "/\(draft.para.title)/\(draft.layer.directoryName)/"

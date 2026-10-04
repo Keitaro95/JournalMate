@@ -203,7 +203,10 @@ final class SubscriptionService {
         let plan: PaidPlan? = isActive(BillingConfig.maxEntitlementID) ? .max
             : isActive(BillingConfig.entitlementID) ? .pro
             : nil
-        entitlement.updateSubscription(plan: plan)
+        let active = plan.flatMap { info.entitlements[$0 == .max ? BillingConfig.maxEntitlementID : BillingConfig.entitlementID] }
+        entitlement.updateSubscription(plan: plan,
+                                       renewsAt: active?.expirationDate,
+                                       willRenew: active?.willRenew ?? true)
     }
 
     private static func title(tier: PaidPlan, isAnnual: Bool) -> String {

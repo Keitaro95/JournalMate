@@ -37,7 +37,7 @@ AI と話すだけで、その日のジャーナルができあがる。ふだ�
 ### 説明文（日本語）
 
 アプリの今の動き（`JournalMate/Core/Usage.swift` の `ProFeature`）に合わせてある。
-プランなしでできるのは「見返す・書き出す・取り込む」まで。書くことと AI はトライアルか Pro / Max。
+プランなしでも「書く・見返す・書き出す・取り込む」はずっと無料。AI だけがトライアルか Pro / Max。
 
 ```
 話したことが、その日のジャーナルになる。
@@ -70,16 +70,16 @@ JournalMate は、AI との対話をそのまま日々の記録に変え、あ�
 ・支払いの登録なしで、すべての機能を 7 日間お試しいただけます（AI は Claude Haiku）
 ・自動で課金されることはありません
 
-■ プランが無いときにできること
-・これまでのジャーナルをカレンダーとツリーで見返す
+■ プランが無くても、ずっと無料でできること
+・自分の言葉でジャーナルやノートを書く・直す
+・これまでのジャーナルをカレンダーとフォルダで見返す
 ・Markdown（Obsidian 互換）での書き出し、バックアップからの復元
 ・メモ.app や Obsidian からのメモの取り込み
-・ジャーナルを書くこと、AI の機能には Pro か Max（またはトライアル）が必要です
+・AI の機能には Pro か Max（またはトライアル）が必要です
 
 ■ Pro でできること（Claude Sonnet）
 ・AI とのチャット
 ・AI でのジャーナル書き起こしと、PARA への自動振り分け
-・自分の言葉でジャーナルやノートを書く・直す
 ・過去のジャーナルから引き出す：AI が過去の記録を踏まえて語りかけ、「あの時どうしてたっけ」「どうしよう」と迷ったときに過去の自分から答えを引き出します
 ・自分の傾向：集めた原本とジャーナルから、いまの傾向と向かうべき道を AI が書き出します
 ※ 1 日・1 か月あたりの AI の利用量に上限があります
@@ -136,16 +136,16 @@ You can export everything, folder hierarchy included, as Markdown (Obsidian-comp
 • Try every feature for 7 days with no payment details required (AI powered by Claude Haiku)
 • You will never be charged automatically
 
-■ WITHOUT A PLAN
+■ FREE FOREVER, NO PLAN NEEDED
+• Write and edit journals and notes in your own words
 • Look back on your past journals in Calendar and Folders
 • Export as Markdown (Obsidian-compatible) and restore from backups
 • Import memos from the Notes app or Obsidian
-• Writing journals and AI features require Pro or Max (or the free trial)
+• AI features require Pro or Max (or the free trial)
 
 ■ PRO (CLAUDE SONNET)
 • Conversations with AI
 • AI journal extraction, automatically filed into PARA
-• Write and edit journals and notes in your own words
 • Draw on your past journals: the AI talks with you with your past records in mind, and when you wonder "What did I do last time?" or "What should I do?", it brings back answers from your past self
 • Your patterns: the AI blends your collected sources and journals, and writes out your current patterns and the direction to head in
 * There are daily and monthly limits on AI usage
@@ -276,9 +276,9 @@ JournalMate は、日記を続けたいけれど、毎日書くことや書い�
 
 6. App 内課金
 1 つのサブスクリプショングループに、自動更新サブスクリプションがあります。
-- Pro 月額（app.journalmate.pro.monthly）/ Pro 年額（app.journalmate.pro.annual）：ジャーナルを書く、AI とのチャット、AI でのジャーナル書き起こし、過去のジャーナルから引き出す、自分の傾向。Claude Sonnet を使用し、1 日・1 か月あたりの利用量に上限があります。
+- Pro 月額（app.journalmate.pro.monthly）/ Pro 年額（app.journalmate.pro.annual）：AI とのチャット、AI でのジャーナル書き起こし、過去のジャーナルから引き出す、自分の傾向。Claude Sonnet を使用し、1 日・1 か月あたりの利用量に上限があります。
 - Max 月額（app.journalmate.max.monthly）/ Max 年額（app.journalmate.max.annual）：Pro のすべての機能を Claude Opus で。利用量の上限は Pro の 2 倍です。
-購入なしで使えるもの：カレンダーとフォルダでの過去のジャーナルの閲覧、取り込み、書き出し、バックアップからの復元。オンボーディングでは、AI との会話と AI での書き起こしを 1 回ずつ無料で試せます。ジャーナルを書くことと AI の機能には、トライアル、Pro、Max のいずれかが必要です。
+購入なしで使えるもの：ジャーナルを書く・直す、カレンダーとフォルダでの閲覧、取り込み、書き出し、バックアップからの復元。オンボーディングでは、AI との会話と AI での書き起こしを 1 回ずつ無料で試せます。AI の機能には、トライアル、Pro、Max のいずれかが必要です。
 購入画面への行き方：
 - 設定 >「プランを変更」（Change Plan）、または
 - プランなしで Pro の機能を使う（例：チャットタブでメッセージを送る、ジャーナルタブを開く）と Paywall が開きます。

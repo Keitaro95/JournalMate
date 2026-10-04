@@ -119,17 +119,40 @@ final class JournalMateUITests: XCTestCase {
         assertExists(app.navigationBars["Settings"])
     }
 
-    func testFreePlanShowsPaywallWhenWriting() {
+    func testFreePlanCanWriteAndSaveJournal() {
         launch("free")
         tab("Journal")
 
-        // 入力欄に触れた瞬間に Paywall（なぜ書けないかを見せる）。
-        let gate = app.buttons["Writing journals"]
-        assertExists(gate, "書く場所に重ねた Paywall への入口")
+        // 書くことは無料。保存先を選ばずに書き始めると、置き場所の案内が出る。
+        let title = app.textFields["Title"]
+        assertExists(title)
+        title.tap()
+        title.typeText("Free entry")
+        assertExists(text(containing: "If you don't, it's saved to Journal / journal."), "保存先の案内")
+
+        let body = app.textViews.firstMatch
+        body.tap()
+        body.typeText("Written without a plan.")
+
+        app.buttons["Save"].tap()
+        assertExists(app.alerts["Saved to Journal"], "保存先を選ばなければ Journal に記録される")
+        app.alerts["Saved to Journal"].buttons["OK"].tap()
+
+        tab("Calendar")
+        assertExists(text(containing: "Free entry"), "カレンダーの今日に出る")
+    }
+
+    func testFreePlanShowsPaywallWhenTouchingChat() {
+        launch("free")
+        tab("Chat")
+
+        // AI チャットだけが有料。入力欄に触れた瞬間に Paywall（なぜ使えないかを見せる）。
+        let gate = app.buttons["Conversations with AI"]
+        assertExists(gate, "入力欄に重ねた Paywall への入口")
         gate.tap()
 
         assertExists(app.navigationBars["Pro"], "Paywall が出る")
-        assertExists(text(containing: "This feature needs Pro, Max, or the free trial."))
+        assertExists(text(containing: "AI chat is available with a plan."))
         _ = scrollTo("Restore Purchases")
         _ = scrollTo("Privacy Policy")
         _ = scrollTo("Terms of Use")
@@ -203,8 +226,8 @@ final class JournalMateUITests: XCTestCase {
         body.typeText("Wrote this from the UI test.")
 
         app.buttons["Save"].tap()
-        assertExists(app.alerts["Saved"], "保存できた")
-        app.alerts["Saved"].buttons["OK"].tap()
+        assertExists(app.alerts["Saved to Journal"], "保存できた")
+        app.alerts["Saved to Journal"].buttons["OK"].tap()
 
         // Calendar：今日を開いた状態でジャーナルが並ぶ。
         tab("Calendar")
@@ -220,11 +243,63 @@ final class JournalMateUITests: XCTestCase {
         assertExists(text(containing: "UI test entry"), "検索で見つかる")
     }
 
+    /// ジャーナルが 1 件でもあると、月をめくるたびに選択中の日の月へ戻されていた（2026-10-04 の報告）。
+    func testCalendarMovesBetweenMonthsWithAJournal() {
+        launch("free")
+        tab("Journal")
+        let body = app.textViews.firstMatch
+        assertExists(body)
+        body.tap()
+        body.typeText("Entry so the calendar has a dot.")
+        app.buttons["Save"].tap()
+        assertExists(app.alerts["Saved to Journal"])
+        app.alerts["Saved to Journal"].buttons["OK"].tap()
+
+        tab("Calendar")
+        let previous = app.buttons["DatePicker.PreviousMonth"]
+        let next = app.buttons["DatePicker.NextMonth"]
+        assertExists(previous)
+
+        let calendar = Calendar(identifier: .gregorian)
+        let now = Date()
+        for _ in 0..<3 {
+            previous.tap()
+        }
+        assertExists(text(containing: monthTitle(calendar.date(byAdding: .month, value: -3, to: now)!)),
+                     "3 か月前に戻れる")
+
+        for _ in 0..<3 {
+            next.tap()
+        }
+        assertExists(text(containing: monthTitle(now)), "今月に戻れる")
+
+        // 年月ピッカーで 1 年前を選ぶ。
+        app.buttons["DatePicker.Show"].tap()
+        let yearWheel = app.pickerWheels.element(boundBy: 1)
+        assertExists(yearWheel, "年のホイール")
+        let lastYear = calendar.component(.year, from: now) - 1
+        yearWheel.adjust(toPickerWheelValue: String(lastYear))
+        // 開いている間は見出しのボタンの identifier が変わるので、どちらでも拾う。
+        app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH 'DatePicker.' AND NOT identifier IN %@",
+                                         ["DatePicker.PreviousMonth", "DatePicker.NextMonth"])).firstMatch.tap()
+        assertExists(text(containing: monthTitle(calendar.date(byAdding: .year, value: -1, to: now)!)),
+                     "1 年前を選べる")
+    }
+
+    /// UICalendarView の見出しと同じ書き方（例: "July 2026"）。
+    private func monthTitle(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.setLocalizedDateFormatFromTemplate("MMMMyyyy")
+        return formatter.string(from: date)
+    }
+
     func testTrialShowsInSettings() {
         launch("trial")
         tab("Settings")
         assertExists(text(containing: "Trial"))
         assertExists(text(containing: "Free trial: every feature is available"))
+        assertExists(text(containing: "Ends On"), "トライアルの終了日")
     }
 
     // MARK: - 起動の速さ

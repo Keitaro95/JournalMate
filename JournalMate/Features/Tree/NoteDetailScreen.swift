@@ -4,7 +4,6 @@ import SwiftUI
 struct NoteDetailScreen: View {
 
     @Environment(Store.self) private var store
-    @Environment(Entitlement.self) private var entitlement
 
     let note: Note
     let node: Node
@@ -14,7 +13,6 @@ struct NoteDetailScreen: View {
     @State private var body_ = ""
     @State private var isEditing = false
     @State private var errorMessage: String?
-    @State private var paywall: ProFeature?
 
     var body: some View {
         ScrollView {
@@ -38,23 +36,15 @@ struct NoteDetailScreen: View {
             }
             .padding()
         }
-        .navigationTitle(note.filename)
+        .navigationTitle(node.parentID == nil ? node.para.displayTitle : node.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button(isEditing ? "Done" : "Edit") {
-                    // 書き直すのも有料。編集中に切れた場合は、書いた分を失わないよう保存は通す。
-                    guard isEditing || entitlement.isPro else {
-                        paywall = .journalWrite
-                        return
-                    }
                     if isEditing { save() }
                     isEditing.toggle()
                 }
             }
-        }
-        .sheet(item: $paywall) { feature in
-            PaywallSheet(feature: feature)
         }
         .alert("Error", isPresented: .constant(errorMessage != nil)) {
             Button("OK") { errorMessage = nil }
@@ -64,7 +54,7 @@ struct NoteDetailScreen: View {
         .task {
             title = note.title
             body_ = note.body
-            isEditing = startsEditing && entitlement.isPro
+            isEditing = startsEditing
         }
     }
 

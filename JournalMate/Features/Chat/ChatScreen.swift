@@ -118,7 +118,7 @@ struct ChatScreen: View {
             MultilineTextInput(
                 placeholder: model.pendingSave != nil ? String(localized: "Reply with a folder name")
                     : entitlement.isPro ? String(localized: "Talk about what's on your mind")
-                                        : String(localized: "Write what's on your mind"),
+                                        : String(localized: "AI chat needs a plan. You can write on your own in the Journal tab"),
                 text: $model.input,
                 minHeight: 42,
                 maxHeight: 142)
@@ -137,7 +137,7 @@ struct ChatScreen: View {
         .padding(.horizontal)
         .padding(.vertical, 8)
         .keepsKeyboardOnTap()
-        // 無料プランでは入力欄に触れた瞬間に Paywall。
+        // 無料プランでは入力欄に触れた瞬間に Paywall（AI チャットは有料。書くのは Journal タブで無料）。
         .proGate(.aiChat)
         .background(.bar)
     }
@@ -167,28 +167,36 @@ private struct EmptyChatPrompt: View {
             Image(systemName: "bubble.left.and.text.bubble.right")
                 .font(.system(size: 40))
                 .foregroundStyle(.tertiary)
-            Text(isPro ? "What were you thinking about today?" : "Keep journaling with Pro")
+            Text(isPro ? "What were you thinking about today?" : "Writing is free. Talking with AI needs a plan.")
                 .appFont(.headline)
+                .multilineTextAlignment(.center)
             Text(isPro
                  ? "Tap \"Save to Journal\" to turn what you said into a journal entry, sorted into PARA automatically."
-                 : "Talking with AI and writing journals need a plan. Your past journals are still in Calendar and Folders, and you can export them anytime.")
+                 : "Write journals yourself in the Journal tab, and look back in Calendar and Folders. All of this stays free.")
                 .appFont(.footnote)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
-            // 記録するだけの場所だと思われやすいので、過去を探せることも最初に見せておく。
-            if isPro {
+            // AI に何ができるかは、プランの有無に関わらず見せる。AI は「探す」ではなく「まとめる・振り返る」担当で、
+            // 過去のジャーナルそのものを探すのは Folders の検索。
+            VStack(alignment: .leading, spacing: 10) {
                 Label {
-                    Text("You can also search past journals. Ask something like \"What was I journaling about on this day last month?\"")
+                    Text("The AI analyzes the journals you've written and gives you a summary.")
+                } icon: {
+                    Image(systemName: "sparkles")
+                }
+                Label {
+                    Text("To find a past journal itself, use search in Folders.")
                 } icon: {
                     Image(systemName: "magnifyingglass")
                 }
-                .appFont(.footnote)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.leading)
-                .padding(12)
-                .background(.quaternary.opacity(0.5), in: .rect(cornerRadius: 12))
-                .padding(.top, 4)
             }
+            .appFont(.footnote)
+            .foregroundStyle(.secondary)
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(12)
+            .background(.quaternary.opacity(0.5), in: .rect(cornerRadius: 12))
+            .padding(.top, 4)
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal, 32)

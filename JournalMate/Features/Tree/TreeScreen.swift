@@ -36,15 +36,12 @@ struct TreeScreen: View {
                             .foregroundStyle(root.para.tint)
                             .frame(width: 30)
                         VStack(alignment: .leading, spacing: 2) {
-                            Text(root.para.title).appFont(.headline)
+                            Text(root.para.displayTitle).appFont(.headline)
                             Text(root.para.subtitle)
                                 .appFont(.caption1)
                                 .foregroundStyle(.secondary)
                         }
                         Spacer()
-                        Text("\(root.code)xx")
-                            .appFont(.caption1, monospacedDigits: true)
-                            .foregroundStyle(.tertiary)
                     }
                     .padding(.vertical, 4)
                 }
@@ -52,7 +49,7 @@ struct TreeScreen: View {
         } header: {
             Text("PARA")
         } footer: {
-            Text("Sort by how involved you are right now, not by topic or field. The leading number becomes the file name prefix.")
+            Text("Sort by how involved you are right now, not by topic or field.")
         }
     }
 
@@ -70,8 +67,8 @@ struct TreeScreen: View {
                             Text(item.note.title).appFont(.headline)
                             HStack(spacing: 6) {
                                 ParaTag(para: item.node.para)
-                                Text("\(item.node.code)  \(item.note.filename)")
-                                    .appFont(.caption1, monospacedDigits: true)
+                                Text(item.node.parentID == nil ? item.node.para.displayTitle : item.node.title)
+                                    .appFont(.caption1)
                                     .foregroundStyle(.secondary)
                                     .lineLimit(1)
                             }

@@ -269,7 +269,7 @@ final class ChatViewModel {
         if offersPaywall {
             paywall = feature
         } else if messages.contains(where: { $0.role == .assistant }) {
-            notice = String(localized: "That's it for AI replies in this trial. Tap \"Turn into Journal\" to save what you wrote.")
+            notice = String(localized: "The free version lets you send 1 message to AI. To keep going, choose a plan. Tap \"Turn into Journal\" to save what you wrote.")
         } else {
             notice = String(localized: "AI replies aren't available right now. You can still save what you wrote as a journal.")
         }

@@ -13,7 +13,7 @@ struct BillingTests {
     }
 
     @Test func freePlanLocksPaidFeatures() {
-        for feature in [ProFeature.aiChat, .journalExtract, .journalWrite, .pastRecall, .knowledge] {
+        for feature in [ProFeature.aiChat, .journalExtract, .pastRecall, .knowledge] {
             #expect(Usage.access(to: feature, isPro: false, usedThisMonth: 0) == .locked)
         }
     }

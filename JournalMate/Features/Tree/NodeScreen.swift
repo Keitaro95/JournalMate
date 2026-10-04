@@ -11,8 +11,6 @@ struct NodeScreen: View {
     @State private var counts: [Layer: Int] = [:]
     @State private var isAddingFolder = false
     @State private var newFolderTitle = ""
-    /// 空なら空き番号を自動で振る。3152 のように自分で決めたいときだけ入れる。
-    @State private var newFolderSeg = ""
     @State private var errorMessage: String?
 
     var body: some View {
@@ -26,10 +24,6 @@ struct NodeScreen: View {
                             Image(systemName: "folder")
                                 .foregroundStyle(child.para.tint)
                             Text(child.title)
-                            Spacer()
-                            Text(child.code)
-                                .appFont(.caption1, monospacedDigits: true)
-                                .foregroundStyle(.tertiary)
                         }
                     }
                 }
@@ -75,23 +69,18 @@ struct NodeScreen: View {
                 Text("Raw data and journals are the ingredients; your patterns are blended from them. Originals are never rewritten, so nothing is lost even if you change the PARA category later.")
             }
 
+            // 番号（node.code）はファイル名と AI の検索の索引に使うだけなので、画面には出さない。
             Section("Path") {
-                LabeledContent("Code", value: node.code)
-                    .appFont(.body, monospacedDigits: true)
                 LabeledContent("Path", value: node.path)
                     .appFont(.caption1, monospacedDigits: true)
             }
         }
-        .navigationTitle(node.parentID == nil ? node.para.title : node.title)
+        .navigationTitle(node.parentID == nil ? node.para.displayTitle : node.title)
         .navigationBarTitleDisplayMode(.inline)
         .alert("Add Subfolder", isPresented: $isAddingFolder) {
             TextField("Name (e.g. Travel)", text: $newFolderTitle)
-            TextField("Number (optional)", text: $newFolderSeg)
-                .keyboardType(.numberPad)
-            Button("Cancel", role: .cancel) { resetFolderInput() }
+            Button("Cancel", role: .cancel) { newFolderTitle = "" }
             Button("Add") { addFolder() }
-        } message: {
-            Text("The number is appended after \(node.code). Leave it empty to use the next free number.")
         }
         .alert("Error", isPresented: .constant(errorMessage != nil)) {
             Button("OK") { errorMessage = nil }
@@ -114,20 +103,15 @@ struct NodeScreen: View {
 
     private func addFolder() {
         let title = newFolderTitle.trimmingCharacters(in: .whitespacesAndNewlines)
-        let seg = Int(newFolderSeg.trimmingCharacters(in: .whitespacesAndNewlines))
-        resetFolderInput()
+        newFolderTitle = ""
         guard !title.isEmpty else { return }
         do {
-            try store.createFolder(under: node, title: title, seg: seg)
+            // 番号は画面に出さないので、いつも空き番号を自動で振る。
+            try store.createFolder(under: node, title: title)
             reload()
         } catch {
             errorMessage = error.localizedDescription
         }
-    }
-
-    private func resetFolderInput() {
-        newFolderTitle = ""
-        newFolderSeg = ""
     }
 
     private func deleteChildren(at offsets: IndexSet) {

@@ -1,11 +1,11 @@
 import SwiftUI
 
 /// 自分の手で書くジャーナル。Tree の「New Journal」と同じ書き心地で書き、
-/// 置く場所は Tree のフォルダの中から自分で選ぶ。AI は使わない。
+/// 置く場所は Tree のフォルダの中から自分で選ぶ。AI は使わないので、プランが無くてもずっと書ける。
+/// 置く場所を選ばなければ Journal のルート（/Journal/journal/）に置く。
 struct JournalScreen: View {
 
     @Environment(Store.self) private var store
-    @Environment(Entitlement.self) private var entitlement
 
     /// 最後に選んだ保存先。毎回同じ場所に書く人が多いので、次も最初からそこを選んでおく。
     @AppStorage("journalDestinationCode") private var destinationCode = ""
@@ -14,11 +14,17 @@ struct JournalScreen: View {
     @State private var body_ = ""
     @State private var destination: Node?
     @State private var isPickingFolder = false
-    @State private var savedPath: String?
+    /// 保存したフォルダの名前。「{フォルダ名}に記録しました」に使う。
+    @State private var savedFolder: String?
     @State private var errorMessage: String?
 
     private var canSave: Bool {
-        destination != nil && !body_.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        !body_.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
+    /// 書き始めたのに保存先を選んでいない。黙って Journal に置くのではなく、置き場所を先に伝える。
+    private var needsDestinationHint: Bool {
+        destination == nil && !(title + body_).trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
     var body: some View {
@@ -26,6 +32,12 @@ struct JournalScreen: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     destinationRow
+                    if needsDestinationHint {
+                        Label("Choose where to save (a subfolder). If you don't, it's saved to Journal / journal.",
+                              systemImage: "info.circle")
+                            .appFont(.caption1)
+                            .foregroundStyle(.secondary)
+                    }
                     TextField("Title", text: $title)
                         .appFont(.title2, weight: .semibold)
                         .textFieldStyle(.plain)
@@ -36,15 +48,13 @@ struct JournalScreen: View {
                         minHeight: 320)
                 }
                 .padding()
-                // 無料プランでは触れた瞬間に Paywall。
-                .proGate(.journalWrite)
             }
             .navigationTitle(Format.dayKey(for: Date()))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") { save() }
-                        .disabled(!canSave || !entitlement.isPro)
+                        .disabled(!canSave)
                 }
             }
             .sheet(isPresented: $isPickingFolder) {
@@ -53,10 +63,9 @@ struct JournalScreen: View {
                     destinationCode = node.code
                 }
             }
-            .alert("Saved", isPresented: .constant(savedPath != nil)) {
-                Button("OK") { savedPath = nil }
-            } message: {
-                Text(savedPath ?? "")
+            .alert(savedFolder.map { String(localized: "Saved to \($0)") } ?? "",
+                   isPresented: .constant(savedFolder != nil)) {
+                Button("OK") { savedFolder = nil }
             }
             .alert("Error", isPresented: .constant(errorMessage != nil)) {
                 Button("OK") { errorMessage = nil }
@@ -108,16 +117,15 @@ struct JournalScreen: View {
     }
 
     private func save() {
-        guard let destination else { return }
         let text = body_.trimmingCharacters(in: .whitespacesAndNewlines)
         let heading = title.trimmingCharacters(in: .whitespaces)
         // 見出しが空なら本文の書き出しを使う（チャットから自分の言葉で残すときと同じ）。
         let resolvedTitle = heading.isEmpty ? String(text.prefix(24)) : heading
         do {
-            try store.createNote(in: destination, layer: .journal, title: resolvedTitle, body: text)
+            let target = try store.createJournal(in: destination, title: resolvedTitle, body: text).node
             title = ""
             body_ = ""
-            savedPath = "\(destination.path)/\(Layer.journal.directoryName)/"
+            savedFolder = target.parentID == nil ? target.para.displayTitle : target.title
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -143,7 +151,7 @@ struct FolderPickerSheet: View {
                             FolderPickerLevel(node: root) { pick($0) }
                         } label: {
                             Label {
-                                Text(root.para.title)
+                                Text(root.para.displayTitle)
                             } icon: {
                                 Image(systemName: root.para.symbol)
                                     .foregroundStyle(root.para.tint)
@@ -181,8 +189,6 @@ private struct FolderPickerLevel: View {
     @State private var children: [Node] = []
     @State private var isAddingFolder = false
     @State private var newFolderTitle = ""
-    /// 空なら空き番号を自動で振る。Folders 画面の「Add Subfolder」と同じ。
-    @State private var newFolderSeg = ""
     /// 作ったばかりのフォルダ。そのまま中へ進んで「Save Here」できるようにする。
     @State private var createdFolder: Node?
     @State private var errorMessage: String?
@@ -204,6 +210,16 @@ private struct FolderPickerLevel: View {
                         .appFont(.caption2, monospacedDigits: true)
                 }
             }
+            // PARA の 4 つは直下に置けない。サブフォルダが無いと置き場が無いので、作る入口を先頭に出す。
+            if !canSaveHere, children.isEmpty {
+                Section {
+                    Button("Add Subfolder", systemImage: "folder.badge.plus") {
+                        isAddingFolder = true
+                    }
+                } footer: {
+                    Text("Create a subfolder to save here.")
+                }
+            }
             Section {
                 if children.isEmpty {
                     Text("No subfolders")
@@ -217,38 +233,32 @@ private struct FolderPickerLevel: View {
                             Image(systemName: "folder")
                                 .foregroundStyle(child.para.tint)
                             Text(child.title)
-                            Spacer()
-                            Text(child.code)
-                                .appFont(.caption1, monospacedDigits: true)
-                                .foregroundStyle(.tertiary)
                         }
                     }
                 }
 
-                Button("Add Subfolder", systemImage: "folder.badge.plus") {
-                    isAddingFolder = true
+                if canSaveHere || !children.isEmpty {
+                    Button("Add Subfolder", systemImage: "folder.badge.plus") {
+                        isAddingFolder = true
+                    }
                 }
             } header: {
                 Text("Folders")
             } footer: {
-                if !canSaveHere {
+                if !canSaveHere, !children.isEmpty {
                     Text("Journals go inside a folder. Open one, or add a subfolder.")
                 }
             }
         }
-        .navigationTitle(isRoot ? node.para.title : node.title)
+        .navigationTitle(isRoot ? node.para.displayTitle : node.title)
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(item: $createdFolder) { folder in
             FolderPickerLevel(node: folder, onPick: onPick)
         }
         .alert("Add Subfolder", isPresented: $isAddingFolder) {
             TextField("Name (e.g. Travel)", text: $newFolderTitle)
-            TextField("Number (optional)", text: $newFolderSeg)
-                .keyboardType(.numberPad)
-            Button("Cancel", role: .cancel) { resetFolderInput() }
+            Button("Cancel", role: .cancel) { newFolderTitle = "" }
             Button("Add") { addFolder() }
-        } message: {
-            Text("The number is appended after \(node.code). Leave it empty to use the next free number.")
         }
         .alert("Error", isPresented: .constant(errorMessage != nil)) {
             Button("OK") { errorMessage = nil }
@@ -264,20 +274,15 @@ private struct FolderPickerLevel: View {
 
     private func addFolder() {
         let title = newFolderTitle.trimmingCharacters(in: .whitespacesAndNewlines)
-        let seg = Int(newFolderSeg.trimmingCharacters(in: .whitespacesAndNewlines))
-        resetFolderInput()
+        newFolderTitle = ""
         guard !title.isEmpty else { return }
         do {
-            let folder = try store.createFolder(under: node, title: title, seg: seg)
+            // 番号は画面に出さないので、いつも空き番号を自動で振る。
+            let folder = try store.createFolder(under: node, title: title)
             reload()
             createdFolder = folder
         } catch {
             errorMessage = error.localizedDescription
         }
-    }
-
-    private func resetFolderInput() {
-        newFolderTitle = ""
-        newFolderSeg = ""
     }
 }

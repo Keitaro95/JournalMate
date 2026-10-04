@@ -84,15 +84,18 @@ struct PlanChooser: View {
                 Text(subscriptions.errorMessage ?? "")
             }
             .alert("Error", isPresented: .constant(trialError != nil)) {
+                Button("Try Again") {
+                    trialError = nil
+                    Task { await confirm() }
+                }
                 if context == .onboarding {
-                    // 初回起動で止めない。プランが無くても閲覧と書き出しはできるので、そのまま先へ進める。
-                    Button("Continue for Free") {
+                    // 初回起動で止めない。プランが無くても書く・振り返る・書き出すはできるので、そのまま先へ進める。
+                    Button("Continue for Free", role: .cancel) {
                         trialError = nil
                         onFinish()
                     }
-                    Button("Try Again", role: .cancel) { trialError = nil }
                 } else {
-                    Button("OK") { trialError = nil }
+                    Button("Close", role: .cancel) { trialError = nil }
                 }
             } message: {
                 Text(trialError ?? "")
@@ -184,7 +187,7 @@ struct PlanChooser: View {
                 }
             }
             Label {
-                Text("Without a plan, you can still view and export your past journals").appFont(.subheadline)
+                Text("Without a plan, writing journals, looking back in Calendar, and exporting stay free forever").appFont(.subheadline)
             } icon: {
                 Image(systemName: "checkmark.seal").foregroundStyle(.secondary)
             }
@@ -246,7 +249,7 @@ struct PlanChooser: View {
             .controlSize(.large)
             .disabled(!canConfirm)
 
-            // トライアルを使い切った端末でも、閲覧と書き出しだけの無料プランでは始められるようにする。
+            // トライアルを使い切った端末でも、AI 以外は全部使える無料プランで始められるようにする。
             if context == .onboarding, !entitlement.canStartTrial, !entitlement.isPro {
                 Button("Continue for Free", action: onFinish)
                     .appFont(.subheadline)

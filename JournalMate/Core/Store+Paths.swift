@@ -6,6 +6,20 @@ extension Store {
         roots.first { $0.para == para }
     }
 
+    /// Journal タブで書いたジャーナルを置く。保存先を選んでいなければ Journal のルート（/Journal/journal/）に置く。
+    /// 置いたフォルダも返す（「{フォルダ名}に記録しました」に使う）。
+    @discardableResult
+    func createJournal(in destination: Node?, title: String, body: String,
+                       occurredAt: Date = Date()) throws -> (note: Note, node: Node) {
+        guard let node = destination ?? root(for: .journal) else {
+            throw NSError(domain: "JournalMate", code: 1, userInfo: [
+                NSLocalizedDescriptionKey: String(localized: "The PARA root folder was not found"),
+            ])
+        }
+        let note = try createNote(in: node, layer: .journal, title: title, body: body, occurredAt: occurredAt)
+        return (note, node)
+    }
+
     func node(code: String) throws -> Node? {
         try allNodes().first { $0.code == code }
     }
