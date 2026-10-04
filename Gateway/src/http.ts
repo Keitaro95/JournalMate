@@ -5,6 +5,7 @@
  *   401 … 認証（セッションが無い・切れた）
  *   402 … 未契約
  *   429 … 上限（レート・トークン）
+ *   503 … こちら側の一時的な失敗（KV の書き込みなど）。待てば戻る
  */
 
 export function json(value: unknown, status = 200, headers: HeadersInit = {}): Response {
@@ -18,8 +19,17 @@ export function badRequest(reason: string): Response {
   return json({ error: { type: "invalid_request", message: reason } }, 400);
 }
 
-export function unauthorized(reason: string): Response {
-  return json({ error: { type: "unauthorized", message: reason } }, 401);
+export function unauthorized(reason: string, stage?: "attestation" | "assertion"): Response {
+  return json({ error: { type: "unauthorized", stage, message: reason } }, 401);
+}
+
+/** こちら側の一時的な失敗。端末の確認の失敗（401）と分けて、アプリが鍵を捨てないようにする。 */
+export function unavailable(retryAfterSeconds = 30): Response {
+  return json(
+    { error: { type: "unavailable", message: "混み合っています。少し待ってからお試しください" } },
+    503,
+    { "retry-after": String(retryAfterSeconds) },
+  );
 }
 
 export function paymentRequired(

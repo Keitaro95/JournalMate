@@ -19,7 +19,7 @@
 import { fromBase64, fromBase64Url, timingSafeEqual, toBase64, toBase64Url, utf8 } from "./bytes";
 import { verifyAssertion, verifyAttestation } from "./attest";
 import { CHALLENGE_TTL_SECONDS, Env, SESSION_TTL_SECONDS } from "./config";
-import { badRequest, json, unauthorized } from "./http";
+import { badRequest, json, unauthorized, unavailable } from "./http";
 import { issue } from "./jwt";
 
 interface DeviceKey {
@@ -125,10 +125,11 @@ export async function startSession(request: Request, env: Env): Promise<Response
 
   const stored = await env.CACHE.get<DeviceKey>(deviceKey(keyId), "json");
 
-  try {
-    if (!stored) {
-      if (!body.attestation) return badRequest("初回は attestation が要ります");
+  let device: DeviceKey;
+  if (!stored) {
+    if (!body.attestation) return badRequest("初回は attestation が要ります");
 
+    try {
       const publicKey = await verifyAttestation({
         attestation: fromBase64(body.attestation),
         keyId: fromBase64(keyId),
@@ -136,15 +137,19 @@ export async function startSession(request: Request, env: Env): Promise<Response
         appId: env.APP_ID,
         rootPem: env.APPLE_ROOT_CA_PEM,
       });
-      await saveDevice(keyId, { publicKey: toBase64(publicKey), counter: 0, appUserId }, env);
-    } else {
-      if (!body.assertion) return badRequest("assertion が要ります");
+      device = { publicKey: toBase64(publicKey), counter: 0, appUserId };
+    } catch (error) {
+      return attestFailed("attestation", keyId, error);
+    }
+  } else {
+    if (!body.assertion) return badRequest("assertion が要ります");
 
-      // この端末の鍵は、最初に名乗った appUserID のものとして使い続ける。
-      if (stored.appUserId !== appUserId) {
-        return unauthorized("この端末は別のアカウントに紐づいています");
-      }
+    // この端末の鍵は、最初に名乗った appUserID のものとして使い続ける。
+    if (stored.appUserId !== appUserId) {
+      return unauthorized("この端末は別のアカウントに紐づいています", "assertion");
+    }
 
+    try {
       const counter = await verifyAssertion({
         assertion: fromBase64(body.assertion),
         clientData: clientData(challenge, appUserId),
@@ -152,15 +157,31 @@ export async function startSession(request: Request, env: Env): Promise<Response
         appId: env.APP_ID,
         previousCounter: stored.counter,
       });
-      await saveDevice(keyId, { ...stored, counter }, env);
+      device = { ...stored, counter };
+    } catch (error) {
+      return attestFailed("assertion", keyId, error);
     }
+  }
+
+  // KV の失敗（書き込み枠の超過など）は端末の確認の失敗ではない。401 にすると
+  // アプリは鍵を捨てて作り直してしまうので、503 で「待てば戻る」と返す。
+  try {
+    await saveDevice(keyId, device, env);
   } catch (error) {
-    // 失敗の理由は返さない（攻撃者に手がかりを渡さない）。ログには残す。
-    console.warn("attest failed", { keyId, message: (error as Error).message });
-    return unauthorized("端末を確認できませんでした");
+    console.error("saveDevice failed", { keyId, message: (error as Error).message });
+    return unavailable();
   }
 
   return await grant(appUserId, keyId, env);
+}
+
+/**
+ * 失敗の細かい理由は返さない（攻撃者に手がかりを渡さない）。どの段階で落ちたかの種類だけ返し、
+ * 理由はログ（wrangler.toml の [observability]）に残す。
+ */
+function attestFailed(stage: "attestation" | "assertion", keyId: string, error: unknown): Response {
+  console.warn("attest failed", { stage, keyId, message: (error as Error).message });
+  return unauthorized("端末を確認できませんでした", stage);
 }
 
 async function grant(appUserId: string, keyId: string, env: Env): Promise<Response> {
