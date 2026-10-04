@@ -20,6 +20,7 @@ struct CalendarViewRepresentable: UIViewRepresentable {
 
         let selection = UICalendarSelectionSingleDate(delegate: context.coordinator)
         selection.selectedDate = context.coordinator.components(for: selectedDate)
+        context.coordinator.appliedDate = selectedDate
         view.selectionBehavior = selection
 
         // 高さを内容なりに決めさせる。Form / VStack の中で潰れないように。
@@ -33,11 +34,13 @@ struct CalendarViewRepresentable: UIViewRepresentable {
         let changedDays = coordinator.apply(markers: markers)
         coordinator.parent = self
 
-        if let selection = view.selectionBehavior as? UICalendarSelectionSingleDate {
-            let target = coordinator.components(for: selectedDate)
-            if selection.selectedDate != target {
-                selection.setSelected(target, animated: true)
-            }
+        // アプリの側から日付が変わったときだけ選択を動かす。
+        // markers の取り直しなどで呼ばれるたびに setSelected すると、めくった月が選択日の月へ戻される。
+        // UICalendarView は選択日に暦やタイムゾーンを足して持つので、DateComponents 同士では比べない。
+        if !coordinator.isApplied(selectedDate),
+           let selection = view.selectionBehavior as? UICalendarSelectionSingleDate {
+            coordinator.appliedDate = selectedDate
+            selection.setSelected(coordinator.components(for: selectedDate), animated: true)
         }
 
         if !changedDays.isEmpty {
@@ -54,10 +57,16 @@ struct CalendarViewRepresentable: UIViewRepresentable {
         var parent: CalendarViewRepresentable
         private var markers: [String: (count: Int, para: Para)] = [:]
         private let calendar = Calendar(identifier: .gregorian)
+        /// 最後にカレンダーへ反映した選択日（カレンダーで押された日も含む）。
+        var appliedDate: Date?
 
         init(parent: CalendarViewRepresentable) {
             self.parent = parent
             self.markers = parent.markers
+        }
+
+        func isApplied(_ date: Date) -> Bool {
+            appliedDate.map { calendar.isDate($0, inSameDayAs: date) } ?? false
         }
 
         func components(for date: Date) -> DateComponents {
@@ -101,6 +110,7 @@ struct CalendarViewRepresentable: UIViewRepresentable {
         func dateSelection(_ selection: UICalendarSelectionSingleDate,
                            didSelectDate dateComponents: DateComponents?) {
             guard let dateComponents, let date = calendar.date(from: dateComponents) else { return }
+            appliedDate = date
             parent.selectedDate = date
         }
     }
