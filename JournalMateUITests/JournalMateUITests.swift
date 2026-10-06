@@ -243,6 +243,46 @@ final class JournalMateUITests: XCTestCase {
         assertExists(text(containing: "UI test entry"), "検索で見つかる")
     }
 
+    /// ノートの右上の「…」から編集に入れて、共有はプレビューを挟んでから共有シートが出る。
+    func testNoteMoreMenuEditsAndShares() {
+        launch("free")
+        tab("Journal")
+        let body = app.textViews.firstMatch
+        assertExists(body)
+        body.tap()
+        body.typeText("Entry to share.")
+        app.buttons["Save"].tap()
+        assertExists(app.alerts["Saved to Journal"])
+        app.alerts["Saved to Journal"].buttons["OK"].tap()
+
+        tab("Calendar")
+        let entry = text(containing: "Entry to share.")
+        assertExists(entry)
+        entry.tap()
+
+        let more = app.buttons["NoteDetail.More"]
+        assertExists(more)
+        more.tap()
+        assertExists(app.buttons["Edit"])
+        app.buttons["Edit"].tap()
+        assertExists(app.buttons["Done"], "編集に入れる")
+        app.buttons["Done"].tap()
+
+        assertExists(more)
+        more.tap()
+        assertExists(app.buttons["Share"])
+        app.buttons["Share"].tap()
+        let share = app.buttons["SharePreview.Share"]
+        assertExists(share, "共有の前にプレビューが出る")
+        assertExists(app.switches["Include app name"])
+        share.tap()
+
+        let appeared = app.otherElements["ActivityListView"].waitForExistence(timeout: 15)
+            || app.navigationBars["UIActivityContentView"].waitForExistence(timeout: 5)
+            || app.buttons["Save Image"].waitForExistence(timeout: 5)
+        XCTAssertTrue(appeared, "共有シートが出ない")
+    }
+
     /// ジャーナルが 1 件でもあると、月をめくるたびに選択中の日の月へ戻されていた（2026-10-04 の報告）。
     func testCalendarMovesBetweenMonthsWithAJournal() {
         launch("free")

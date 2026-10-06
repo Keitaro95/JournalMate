@@ -14,6 +14,7 @@ struct NoteDetailScreen: View {
     @State private var body_ = ""
     @State private var isEditing = false
     @State private var isPickingFolder = false
+    @State private var isSharing = false
     /// 移した先のフォルダの名前。「{フォルダ名}に移しました」に使う。
     @State private var movedFolder: String?
     @State private var errorMessage: String?
@@ -50,11 +51,27 @@ struct NoteDetailScreen: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button(isEditing ? "Done" : "Edit") {
-                    if isEditing { save() }
-                    isEditing.toggle()
+                if isEditing {
+                    Button("Done") {
+                        save()
+                        isEditing = false
+                    }
+                } else {
+                    // Safari と同じ「…」。書いている途中は迷わせないよう、編集中は「完了」だけにする。
+                    Menu {
+                        Button("Edit", systemImage: "pencil") { isEditing = true }
+                        Button("Share", systemImage: "square.and.arrow.up") { isSharing = true }
+                    } label: {
+                        Label("More", systemImage: "ellipsis.circle")
+                    }
+                    .accessibilityIdentifier("NoteDetail.More")
                 }
             }
+        }
+        .sheet(isPresented: $isSharing) {
+            // 共有するのは保存済みの中身。パス・フォルダ・タグは載せない。
+            SharePreviewSheet(content: ShareCardContent(
+                date: note.updatedAt, title: note.title, body: note.body))
         }
         .sheet(isPresented: $isPickingFolder) {
             FolderPickerSheet(layer: note.layer, isMoving: true) { move(to: $0) }
@@ -122,6 +139,8 @@ struct NoteDetailScreen: View {
     private func save() {
         do {
             try store.updateNote(note, title: title, body: body_)
+            // 共有の画像は `note` から作るので、編集日と中身を読み直しておく。
+            if let saved = try store.note(id: note.id) { note = saved }
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -154,15 +173,19 @@ struct MarkdownText: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             ForEach(Array(markdown.components(separatedBy: "\n").enumerated()), id: \.offset) { _, line in
-                row(for: line)
+                MarkdownLine(line: line)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .textSelection(.enabled)
     }
+}
 
-    @ViewBuilder
-    private func row(for line: String) -> some View {
+/// Markdown の 1 行。共有用の画像（`ShareCard`）も行ごとにページへ詰めるので、行単位で外に出しておく。
+struct MarkdownLine: View {
+    let line: String
+
+    var body: some View {
         let trimmed = line.trimmingCharacters(in: .whitespaces)
         if trimmed.isEmpty {
             Color.clear.frame(height: 2)

@@ -4,6 +4,66 @@
     "" : {
 
     },
+    "Share" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共有"
+          }
+        }
+      }
+    },
+    "More" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "その他"
+          }
+        }
+      }
+    },
+    "Include app name" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリ名を入れる"
+          }
+        }
+      }
+    },
+    "The shared image shows your journal exactly as it is." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共有した画像は、あなたのジャーナルの中身をそのまま見せます"
+          }
+        }
+      }
+    },
+    "Journaled with JournalMate" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JournalMate でジャーナリングしたよ"
+          }
+        }
+      }
+    },
+    "Journaled with JournalMate! #JournalMate" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JournalMate でジャーナリングしたよ！ #JournalMate"
+          }
+        }
+      }
+    },
     "Change Folder" : {
       "localizations" : {
         "ja" : {
