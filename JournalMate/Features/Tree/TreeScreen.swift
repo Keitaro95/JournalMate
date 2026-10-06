@@ -20,6 +20,8 @@ struct TreeScreen: View {
             .navigationTitle("Folders")
             .searchable(text: $searchText, prompt: "Search All Notes")
             .onChange(of: searchText) { runSearch() }
+            // ノートを開いて保存先を変えて戻ってきたとき、結果のフォルダ名を新しくする。
+            .onAppear { if !searchText.isEmpty { runSearch() } }
             .refreshable { try? store.reloadRoots() }
         }
     }

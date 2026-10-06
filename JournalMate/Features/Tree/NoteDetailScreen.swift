@@ -5,14 +5,24 @@ struct NoteDetailScreen: View {
 
     @Environment(Store.self) private var store
 
-    let note: Note
-    let node: Node
     var startsEditing = false
 
+    /// 表示中のノートと置き場所。保存先を変えると両方とも新しいものに差し替わる。
+    @State private var note: Note
+    @State private var node: Node
     @State private var title = ""
     @State private var body_ = ""
     @State private var isEditing = false
+    @State private var isPickingFolder = false
+    /// 移した先のフォルダの名前。「{フォルダ名}に移しました」に使う。
+    @State private var movedFolder: String?
     @State private var errorMessage: String?
+
+    init(note: Note, node: Node, startsEditing: Bool = false) {
+        _note = State(initialValue: note)
+        _node = State(initialValue: node)
+        self.startsEditing = startsEditing
+    }
 
     var body: some View {
         ScrollView {
@@ -46,6 +56,13 @@ struct NoteDetailScreen: View {
                 }
             }
         }
+        .sheet(isPresented: $isPickingFolder) {
+            FolderPickerSheet(layer: note.layer, isMoving: true) { move(to: $0) }
+        }
+        .alert(movedFolder.map { String(localized: "Moved to \($0)") } ?? "",
+               isPresented: .constant(movedFolder != nil)) {
+            Button("OK") { movedFolder = nil }
+        }
         .alert("Error", isPresented: .constant(errorMessage != nil)) {
             Button("OK") { errorMessage = nil }
         } message: {
@@ -72,15 +89,57 @@ struct NoteDetailScreen: View {
                     .appFont(.caption1)
                     .foregroundStyle(.secondary)
             }
-            Text("\(node.path)/\(note.layer.directoryName)/")
-                .appFont(.caption2, monospacedDigits: true)
-                .foregroundStyle(.tertiary)
+            locationButton
         }
+    }
+
+    /// 置き場所のパス。押すと Journal タブで書くときと同じフォルダ選択が開き、選んだ先へ移す。
+    private var locationButton: some View {
+        Button {
+            isPickingFolder = true
+        } label: {
+            HStack(spacing: 6) {
+                Image(systemName: "folder")
+                    .foregroundStyle(node.para.tint)
+                Text(verbatim: "\(node.path)/\(note.layer.directoryName)/")
+                    .appFont(.caption2, monospacedDigits: true)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+                    .truncationMode(.head)
+                Image(systemName: "chevron.right")
+                    .appFont(.caption2, weight: .semibold)
+                    .foregroundStyle(.tertiary)
+            }
+            .padding(.horizontal, 10)
+            .padding(.vertical, 6)
+            .background(.quaternary.opacity(0.5), in: .capsule)
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(Text("Change Folder"))
+        .accessibilityValue(Text(verbatim: "\(node.path)/\(note.layer.directoryName)/"))
     }
 
     private func save() {
         do {
             try store.updateNote(note, title: title, body: body_)
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    /// 本文と日付はそのまま、置き場所だけを変える。
+    private func move(to destination: Node) {
+        guard destination.id != node.id else { return }
+        do {
+            // ファイル名は題名から作るので、書きかけの題名を保存して読み直してから移す。
+            if isEditing {
+                try store.updateNote(note, title: title, body: body_)
+                if let saved = try store.note(id: note.id) { note = saved }
+            }
+            try store.move(note, to: destination)
+            if let moved = try store.note(id: note.id) { note = moved }
+            node = destination
+            movedFolder = destination.parentID == nil ? destination.para.displayTitle : destination.title
         } catch {
             errorMessage = error.localizedDescription
         }

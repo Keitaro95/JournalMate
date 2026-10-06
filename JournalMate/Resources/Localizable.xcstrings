@@ -4,22 +4,42 @@
     "" : {
 
     },
-    "Tap to copy your user ID. Include it when you contact us." : {
+    "Change Folder" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "タップでユーザー ID をコピーします。お問い合わせの際に添えてください。"
+            "value" : "保存先を変える"
           }
         }
       }
     },
-    "User ID" : {
+    "Move Here" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ユーザー ID"
+            "value" : "ここに移す"
+          }
+        }
+      }
+    },
+    "Moved to %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@に移しました"
+          }
+        }
+      }
+    },
+    "Open a folder, then tap \"Move Here\"." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォルダを開いて「ここに移す」をタップしてください。"
           }
         }
       }
@@ -43,9 +63,6 @@
           }
         }
       }
-    },
-    "%@  %@" : {
-      "shouldTranslate" : false
     },
     "%@ (%@)" : {
       "localizations" : {
@@ -91,9 +108,6 @@
       }
     },
     "%@/%@/" : {
-      "shouldTranslate" : false
-    },
-    "%@xx" : {
       "shouldTranslate" : false
     },
     "%lld" : {
@@ -160,7 +174,6 @@
         }
       }
     },
-    "3      1      5      2\n│      │      │      └ Insurance  level 3\n│      │      └─────── Travel     level 2\n│      └────────────── Life       level 1\n└───────────────────── Areas      PARA" : {},
     "7 days free" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -272,6 +285,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "AIがひとつずつ問いかけて、考えていることを引き出します。白紙に向き合う必要はありません。"
+          }
+        }
+      }
+    },
+    "AI chat is available with a plan. The AI reads the journals you've written and gives you summaries and reflections." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI チャットは、プランに登録すると使えます。過去にあなたが書いたジャーナルを AI が読み、要約や振り返りを返します"
+          }
+        }
+      }
+    },
+    "AI chat needs a plan. You can write on your own in the Journal tab" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI チャットにはプランが必要です。Journal タブで自分で書けます"
           }
         }
       }
@@ -403,6 +436,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "この端末では App Attest を使えません"
+          }
+        }
+      }
+    },
+    "Archives" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アーカイブ"
+          }
+        }
+      }
+    },
+    "Areas" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "興味あり"
           }
         }
       }
@@ -743,6 +796,16 @@
         }
       }
     },
+    "Choose where to save (a subfolder). If you don't, it's saved to Journal / journal." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存する場所（サブフォルダ名）をつけてください。何も書かなければ、ジャーナル / journal に保存されます"
+          }
+        }
+      }
+    },
     "Choose Your Plan" : {
       "localizations" : {
         "ja" : {
@@ -814,6 +877,7 @@
       }
     },
     "Code" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -959,6 +1023,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "どのフォルダか分かりませんでした。候補を押すか、「別の場所を選ぶ」から選んでください。"
+          }
+        }
+      }
+    },
+    "Create a subfolder to save here." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サブフォルダを作ると、ここに保存できます"
           }
         }
       }
@@ -1195,6 +1269,16 @@
         }
       }
     },
+    "Ends On" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "終了日"
+          }
+        }
+      }
+    },
     "Error" : {
       "localizations" : {
         "ja" : {
@@ -1306,6 +1390,16 @@
         }
       }
     },
+    "Facts about your surroundings, work, and tastes, with no deadline" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "期限のない自分の環境、事業、好みなどの事実データを集約します"
+          }
+        }
+      }
+    },
     "Failed to prepare SQL: %@\n%@" : {
       "localizations" : {
         "ja" : {
@@ -1372,6 +1466,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "メモを検索"
+          }
+        }
+      }
+    },
+    "Finished deliverables and tasks in progress" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "企画が完了した成果物や着手中のタスクを置きます"
+          }
+        }
+      }
+    },
+    "Finished projects and data you no longer use, moved here folder by folder" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "終わった企画や使わなくなったデータをフォルダごと移動して保管します"
           }
         }
       }
@@ -1474,6 +1588,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無料トライアル中: %@ まで、Claude Haiku で AI の機能がすべて使えます。1 日の利用量に上限があります。終わると無料プランに戻り、請求はありません。"
+          }
+        }
+      }
+    },
+    "Free trial: every feature is available, with AI powered by Claude Haiku, until %@. There is a daily usage limit. Afterward, AI needs Pro or Max. You won't be charged, and writing journals, looking back in Calendar, and exporting stay free." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料トライアル中: %@ まで、すべての機能を使えます（AI は Claude Haiku）。1 日の利用量に上限があります。終了後、AI には Pro か Max が必要です。請求はなく、ジャーナルを書く・カレンダーで振り返る・書き出すはそのまま無料で使えます。"
           }
         }
       }
@@ -1699,6 +1823,7 @@
       }
     },
     "Journal file names include the date and time, down to the minute." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -2405,6 +2530,16 @@
         }
       }
     },
+    "Projects" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プロジェクト"
+          }
+        }
+      }
+    },
     "Rate limit reached. Wait a moment and try again (429)" : {
       "localizations" : {
         "ja" : {
@@ -2519,6 +2654,16 @@
         }
       }
     },
+    "Renews On" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新日"
+          }
+        }
+      }
+    },
     "Repeat Item" : {
       "localizations" : {
         "ja" : {
@@ -2587,6 +2732,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "その週・その月のジャーナルを読み直し、Gold の振り返りを 1 件作ります"
+          }
+        }
+      }
+    },
+    "Resources" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "情報置き場"
           }
         }
       }
@@ -2777,11 +2932,22 @@
       }
     },
     "Saved" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "保存しました"
+          }
+        }
+      }
+    },
+    "Saved to %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@に記録しました"
           }
         }
       }
@@ -2894,6 +3060,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "スキップ"
+          }
+        }
+      }
+    },
+    "Sort by how involved you are right now, not by topic or field." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "話題や分野ではなく、いまの自分との関わり度合いで分けます。"
           }
         }
       }
@@ -3117,6 +3293,26 @@
         }
       }
     },
+    "Tap to copy your user ID. Include it when you contact us." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タップでユーザー ID をコピーします。お問い合わせの際に添えてください。"
+          }
+        }
+      }
+    },
+    "Technical material you looked up and original sources" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "調べた技術資料や外部原本を保管します"
+          }
+        }
+      }
+    },
     "Tell me one thing that happened today. Anything is fine." : {
       "localizations" : {
         "ja" : {
@@ -3167,6 +3363,16 @@
         }
       }
     },
+    "The AI analyzes the journals you've written and gives you a summary." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "過去にあなたが書いたジャーナルを AI が分析し、要約を返します。"
+          }
+        }
+      }
+    },
     "The AI talks to you with your past journals in mind, and pulls up what you did back then when you ask “What did I do last time?”" : {
       "localizations" : {
         "ja" : {
@@ -3203,6 +3409,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無料トライアルはまだ利用できません。"
+          }
+        }
+      }
+    },
+    "The free version lets you send 1 message to AI. To keep going, choose a plan. Tap \"Turn into Journal\" to save what you wrote." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料版で AI に送れるメッセージは 1 回までです。続けるにはプランに登録してください。「ジャーナルにする」をタップすると、書いた内容を保存できます。"
           }
         }
       }
@@ -3443,6 +3659,16 @@
         }
       }
     },
+    "To find a past journal itself, use search in Folders." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "過去のジャーナルそのものを探すときは、Folders の検索を使ってください。"
+          }
+        }
+      }
+    },
     "To get replies from AI, allow what you write to be sent to AI. You can also continue without it and just write." : {
       "localizations" : {
         "ja" : {
@@ -3637,12 +3863,32 @@
         }
       }
     },
+    "User ID" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ユーザー ID"
+          }
+        }
+      }
+    },
     "Uses %lld raw data and %lld journals in this folder and its subfolders." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "このフォルダとサブフォルダの、生データ %1$lld 件とジャーナル %2$lld 件を使います。"
+          }
+        }
+      }
+    },
+    "We couldn't connect to AI right now. Please wait a moment and try again." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "いま AI につながりませんでした。少し時間をおいて、もう一度お試しください。"
           }
         }
       }
@@ -3770,12 +4016,52 @@
         }
       }
     },
+    "Without a plan, writing journals, looking back in Calendar and Folders, and exporting stay free forever. AI chat needs a plan." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プランが無くても、ジャーナルを書く・Calendar と Folders で振り返る・書き出すはずっと無料です。AI チャットにはプランが必要です。"
+          }
+        }
+      }
+    },
+    "Without a plan, writing journals, looking back in Calendar, and exporting stay free forever" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プランが無くても、ジャーナルを書く・カレンダーで振り返る・書き出すはずっと無料"
+          }
+        }
+      }
+    },
     "Work" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "仕事"
+          }
+        }
+      }
+    },
+    "Write journals yourself in the Journal tab, and look back in Calendar and Folders. All of this stays free." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Journal タブで自分でジャーナルを書き、Calendar と Folders で振り返れます。ここまではずっと無料です。"
+          }
+        }
+      }
+    },
+    "Writing is free. Talking with AI needs a plan." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書くことは無料。AI と話すにはプランが必要です"
           }
         }
       }
@@ -3897,256 +4183,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "生データとジャーナルから調合した、自分の傾向"
-          }
-        }
-      }
-    },
-    "We couldn't connect to AI right now. Please wait a moment and try again." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "いま AI につながりませんでした。少し時間をおいて、もう一度お試しください。"
-          }
-        }
-      }
-    },
-    "Without a plan, writing journals, looking back in Calendar, and exporting stay free forever" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "プランが無くても、ジャーナルを書く・カレンダーで振り返る・書き出すはずっと無料"
-          }
-        }
-      }
-    },
-    "AI chat is available with a plan. The AI reads the journals you've written and gives you summaries and reflections." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI チャットは、プランに登録すると使えます。過去にあなたが書いたジャーナルを AI が読み、要約や振り返りを返します"
-          }
-        }
-      }
-    },
-    "The free version lets you send 1 message to AI. To keep going, choose a plan. Tap \"Turn into Journal\" to save what you wrote." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無料版で AI に送れるメッセージは 1 回までです。続けるにはプランに登録してください。「ジャーナルにする」をタップすると、書いた内容を保存できます。"
-          }
-        }
-      }
-    },
-    "Choose where to save (a subfolder). If you don't, it's saved to Journal / journal." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "保存する場所（サブフォルダ名）をつけてください。何も書かなければ、ジャーナル / journal に保存されます"
-          }
-        }
-      }
-    },
-    "Saved to %@" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@に記録しました"
-          }
-        }
-      }
-    },
-    "Create a subfolder to save here." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "サブフォルダを作ると、ここに保存できます"
-          }
-        }
-      }
-    },
-    "Projects" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "プロジェクト"
-          }
-        }
-      }
-    },
-    "Areas" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "興味あり"
-          }
-        }
-      }
-    },
-    "Resources" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "情報置き場"
-          }
-        }
-      }
-    },
-    "Archives" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アーカイブ"
-          }
-        }
-      }
-    },
-    "Finished deliverables and tasks in progress" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "企画が完了した成果物や着手中のタスクを置きます"
-          }
-        }
-      }
-    },
-    "Facts about your surroundings, work, and tastes, with no deadline" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "期限のない自分の環境、事業、好みなどの事実データを集約します"
-          }
-        }
-      }
-    },
-    "Technical material you looked up and original sources" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "調べた技術資料や外部原本を保管します"
-          }
-        }
-      }
-    },
-    "Finished projects and data you no longer use, moved here folder by folder" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "終わった企画や使わなくなったデータをフォルダごと移動して保管します"
-          }
-        }
-      }
-    },
-    "Renews On" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更新日"
-          }
-        }
-      }
-    },
-    "Ends On" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "終了日"
-          }
-        }
-      }
-    },
-    "Free trial: every feature is available, with AI powered by Claude Haiku, until %@. There is a daily usage limit. Afterward, AI needs Pro or Max. You won't be charged, and writing journals, looking back in Calendar, and exporting stay free." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無料トライアル中: %@ まで、すべての機能を使えます（AI は Claude Haiku）。1 日の利用量に上限があります。終了後、AI には Pro か Max が必要です。請求はなく、ジャーナルを書く・カレンダーで振り返る・書き出すはそのまま無料で使えます。"
-          }
-        }
-      }
-    },
-    "Without a plan, writing journals, looking back in Calendar and Folders, and exporting stay free forever. AI chat needs a plan." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "プランが無くても、ジャーナルを書く・Calendar と Folders で振り返る・書き出すはずっと無料です。AI チャットにはプランが必要です。"
-          }
-        }
-      }
-    },
-    "Sort by how involved you are right now, not by topic or field." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "話題や分野ではなく、いまの自分との関わり度合いで分けます。"
-          }
-        }
-      }
-    },
-    "AI chat needs a plan. You can write on your own in the Journal tab" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI チャットにはプランが必要です。Journal タブで自分で書けます"
-          }
-        }
-      }
-    },
-    "Writing is free. Talking with AI needs a plan." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "書くことは無料。AI と話すにはプランが必要です"
-          }
-        }
-      }
-    },
-    "Write journals yourself in the Journal tab, and look back in Calendar and Folders. All of this stays free." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Journal タブで自分でジャーナルを書き、Calendar と Folders で振り返れます。ここまではずっと無料です。"
-          }
-        }
-      }
-    },
-    "The AI analyzes the journals you've written and gives you a summary." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "過去にあなたが書いたジャーナルを AI が分析し、要約を返します。"
-          }
-        }
-      }
-    },
-    "To find a past journal itself, use search in Folders." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "過去のジャーナルそのものを探すときは、Folders の検索を使ってください。"
           }
         }
       }

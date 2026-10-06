@@ -140,6 +140,10 @@ struct FolderPickerSheet: View {
     @Environment(Store.self) private var store
     @Environment(\.dismiss) private var dismiss
 
+    /// 置く層。フッターのパス表示に使う。新しく書くときは journal、既存ノートを移すときはそのノートの層。
+    var layer: Layer = .journal
+    /// 既存のノートを移すために開いた。ボタンを「Move Here」にする（新しく書くときは「Save Here」）。
+    var isMoving = false
     let onPick: (Node) -> Void
 
     var body: some View {
@@ -148,7 +152,7 @@ struct FolderPickerSheet: View {
                 Section {
                     ForEach(store.roots) { root in
                         NavigationLink {
-                            FolderPickerLevel(node: root) { pick($0) }
+                            FolderPickerLevel(node: root, layer: layer, isMoving: isMoving) { pick($0) }
                         } label: {
                             Label {
                                 Text(root.para.displayTitle)
@@ -159,7 +163,11 @@ struct FolderPickerSheet: View {
                         }
                     }
                 } footer: {
-                    Text("Open a folder, then tap \"Save Here\".")
+                    if isMoving {
+                        Text("Open a folder, then tap \"Move Here\".")
+                    } else {
+                        Text("Open a folder, then tap \"Save Here\".")
+                    }
                 }
             }
             .navigationTitle("Choose Folder")
@@ -184,6 +192,8 @@ private struct FolderPickerLevel: View {
     @Environment(Store.self) private var store
 
     let node: Node
+    let layer: Layer
+    let isMoving: Bool
     let onPick: (Node) -> Void
 
     @State private var children: [Node] = []
@@ -203,10 +213,10 @@ private struct FolderPickerLevel: View {
                     Button {
                         onPick(node)
                     } label: {
-                        Label("Save Here", systemImage: "checkmark.circle.fill")
+                        Label(isMoving ? LocalizedStringKey("Move Here") : "Save Here", systemImage: "checkmark.circle.fill")
                     }
                 } footer: {
-                    Text(verbatim: "\(node.path)/\(Layer.journal.directoryName)/")
+                    Text(verbatim: "\(node.path)/\(layer.directoryName)/")
                         .appFont(.caption2, monospacedDigits: true)
                 }
             }
@@ -227,7 +237,7 @@ private struct FolderPickerLevel: View {
                 }
                 ForEach(children) { child in
                     NavigationLink {
-                        FolderPickerLevel(node: child, onPick: onPick)
+                        FolderPickerLevel(node: child, layer: layer, isMoving: isMoving, onPick: onPick)
                     } label: {
                         HStack(spacing: 10) {
                             Image(systemName: "folder")
@@ -253,7 +263,7 @@ private struct FolderPickerLevel: View {
         .navigationTitle(isRoot ? node.para.displayTitle : node.title)
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(item: $createdFolder) { folder in
-            FolderPickerLevel(node: folder, onPick: onPick)
+            FolderPickerLevel(node: folder, layer: layer, isMoving: isMoving, onPick: onPick)
         }
         .alert("Add Subfolder", isPresented: $isAddingFolder) {
             TextField("Name (e.g. Travel)", text: $newFolderTitle)
