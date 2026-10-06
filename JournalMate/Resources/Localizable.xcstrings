@@ -4,6 +4,46 @@
     "" : {
 
     },
+    "Things you want to make happen soon" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "近いうち叶えたいこと"
+          }
+        }
+      }
+    },
+    "No deadline, but it interests you" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "期限つけないけど、興味ある"
+          }
+        }
+      }
+    },
+    "A place for any info, like notes and links" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "なんでも情報置き場、メモとかリンクとか"
+          }
+        }
+      }
+    },
+    "Your archive and storage" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アーカイブ・保管庫です"
+          }
+        }
+      }
+    },
     "Share" : {
       "localizations" : {
         "ja" : {

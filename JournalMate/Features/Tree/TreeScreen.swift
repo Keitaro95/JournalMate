@@ -39,7 +39,7 @@ struct TreeScreen: View {
                             .frame(width: 30)
                         VStack(alignment: .leading, spacing: 2) {
                             Text(root.para.displayTitle).appFont(.headline)
-                            Text(root.para.subtitle)
+                            Text(root.para.shortSubtitle)
                                 .appFont(.caption1)
                                 .foregroundStyle(.secondary)
                         }

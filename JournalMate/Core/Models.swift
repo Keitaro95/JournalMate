@@ -52,6 +52,17 @@ enum Para: String, CaseIterable, Identifiable, Codable {
         }
     }
 
+    /// Folders の一覧に出す、ひと言の説明。Settings の「しくみ」では長い説明（`subtitle`）を出す。
+    var shortSubtitle: String {
+        switch self {
+        case .journal: return String(localized: "Everyday journal")
+        case .projects: return String(localized: "Things you want to make happen soon")
+        case .areas: return String(localized: "No deadline, but it interests you")
+        case .resources: return String(localized: "A place for any info, like notes and links")
+        case .archives: return String(localized: "Your archive and storage")
+        }
+    }
+
     var subtitle: String {
         switch self {
         case .journal: return String(localized: "Everyday journal")
