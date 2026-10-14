@@ -20,6 +20,10 @@ final class Entitlement {
     /// RevenueCat から流れてくる購読中のプラン。`SubscriptionService` だけが更新する。
     private(set) var paidPlan: PaidPlan?
     var isSubscribed: Bool { paidPlan != nil }
+    /// 購読の次の更新日（自動更新を止めていれば終了日）。RevenueCat の `expirationDate` の写し。
+    private(set) var renewsAt: Date?
+    /// 自動更新が有効か。false なら `renewsAt` は「終了日」として見せる。
+    private(set) var willRenew = true
     /// 端末 ID。契約・使用量・無料枠・トライアルは全部これで数える（`DeviceIdentity`）。
     /// RevenueCat の appUserID にも同じ値を使う。
     var appUserID: String { DeviceIdentity.id }
@@ -84,8 +88,8 @@ final class Entitlement {
                 return String(localized: "Your free trial has ended.")
             case .deviceUsed:
                 return String(localized: "The free trial has already been used on this device.")
-            case .server(let status):
-                return String(localized: "Could not start the free trial (\(status)).")
+            case .server:
+                return String(localized: "We couldn't connect to AI right now. Please wait a moment and try again.")
             }
         }
     }
@@ -144,8 +148,10 @@ final class Entitlement {
     // MARK: - 購読
 
     /// `SubscriptionService` からの反映。ここで UI が更新される。
-    func updateSubscription(plan: PaidPlan?) {
+    func updateSubscription(plan: PaidPlan?, renewsAt: Date? = nil, willRenew: Bool = true) {
         paidPlan = plan
+        self.renewsAt = plan == nil ? nil : renewsAt
+        self.willRenew = willRenew
     }
 
     // MARK: - 解放判定

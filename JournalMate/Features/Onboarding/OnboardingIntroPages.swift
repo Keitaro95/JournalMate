@@ -214,7 +214,7 @@ private struct ParaMock: View {
                             Image(systemName: para.symbol)
                                 .foregroundStyle(para.tint)
                                 .frame(width: 22)
-                            Text(para.title).appFont(.subheadline, weight: .semibold)
+                            Text(para.displayTitle).appFont(.subheadline, weight: .semibold)
                             Text(para.subtitle).appFont(.caption1).foregroundStyle(.secondary)
                             Spacer()
                             Text(verbatim: "\(para.leadingDigit)xx")

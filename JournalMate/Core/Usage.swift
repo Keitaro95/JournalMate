@@ -1,19 +1,15 @@
 import Foundation
 
-/// 課金（か 7 日間のトライアル）で解放される機能。
+/// 課金（か 7 日間のトライアル）で解放される機能。**ここに並ぶのは AI の機能だけ。**
 ///
-/// **トライアルが終わった後の無料プランでは、書くことも AI も使えない。**
-/// 残るのは閲覧（カレンダー・ツリー・過去の記録）と Vault 書き出しだけ。
-/// 自分のデータを見られなくなる・持ち出せなくなることはしない。
+/// ジャーナルを書く・直す、カレンダーとフォルダで振り返る、書き出すは、プランが無くてもずっと無料
+/// （2026-10-04 に線を引き直した。MARKETING.md）。お金を払うのは AI を使いたい人だけ。
 /// 無料枠を持つのは、プランを選ぶ前の初回起動の体験（`onboarding*`）だけ。
 enum ProFeature: String, CaseIterable, Identifiable, Sendable {
     /// AI チャットの往復。原価が唯一青天井なのでここは無料枠を置かない。
     case aiChat = "ai_chat"
     /// 会話からのジャーナル抽出・PARA 自動推定。
     case journalExtract = "journal_extract"
-    /// ジャーナルやノートを自分の手で書く・直す（Journal タブ、フォルダの「Add」「Edit」）。
-    /// AI は呼ばないのでゲートウェイには出てこない。アプリの中だけの区分。
-    case journalWrite = "journal_write"
     /// 過去のジャーナルを文脈にした対話。AI が過去の記録を踏まえて語りかけ、
     /// 「あの時どうしてたっけ」を過去から引き出す。教訓にまとめて渡すのではなく、その場で引く。
     /// 実体は `aiChat` の呼び出しに道具（`JournalRecall`）を渡すことなので、`X-Feature` は `ai_chat` のまま。
@@ -34,7 +30,7 @@ enum ProFeature: String, CaseIterable, Identifiable, Sendable {
     var monthlyFreeLimit: Int {
         switch self {
         case .onboardingChat, .onboardingExtract: return 1
-        case .aiChat, .journalExtract, .journalWrite, .pastRecall, .knowledge: return 0
+        case .aiChat, .journalExtract, .pastRecall, .knowledge: return 0
         }
     }
 
@@ -42,7 +38,6 @@ enum ProFeature: String, CaseIterable, Identifiable, Sendable {
         switch self {
         case .aiChat, .onboardingChat: return String(localized: "Conversations with AI")
         case .journalExtract, .onboardingExtract: return String(localized: "Automatic journal extraction")
-        case .journalWrite: return String(localized: "Writing journals")
         case .pastRecall: return String(localized: "Drawing on your past journals")
         case .knowledge: return String(localized: "Generating your patterns")
         }
@@ -54,8 +49,6 @@ enum ProFeature: String, CaseIterable, Identifiable, Sendable {
             return String(localized: "Talk through what is on your mind, and it draws out what is worth writing down")
         case .journalExtract, .onboardingExtract:
             return String(localized: "Summarizes the conversation, infers the PARA category and layer, and decides where it goes")
-        case .journalWrite:
-            return String(localized: "Write and edit journals and notes in your own words. Past entries stay viewable and exportable without a plan")
         case .pastRecall:
             return String(localized: "The AI talks to you with your past journals in mind, and pulls up what you did back then when you ask “What did I do last time?”")
         case .knowledge:
@@ -67,7 +60,6 @@ enum ProFeature: String, CaseIterable, Identifiable, Sendable {
         switch self {
         case .aiChat, .onboardingChat: return "bubble.left.and.text.bubble.right"
         case .journalExtract, .onboardingExtract: return "square.and.arrow.down"
-        case .journalWrite: return "square.and.pencil"
         case .pastRecall: return "clock.arrow.circlepath"
         case .knowledge: return "sparkles"
         }

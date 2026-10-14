@@ -121,7 +121,7 @@ struct CalendarScreen: View {
         }
         let checked = folders.filter { (checkedFolderIDs[para] ?? []).contains($0.id) }
         if checked.isEmpty {
-            return String(localized: "No notes on this day in \(para.title). Use the tabs above to widen the range.")
+            return String(localized: "No notes on this day in \(para.displayTitle). Use the tabs above to widen the range.")
         }
         let names = checked.map(\.title).formatted(.list(type: .and))
         return String(localized: "No notes on this day in \(names).")
@@ -175,7 +175,7 @@ struct CalendarScreen: View {
     }
 }
 
-/// 日付一覧の 1 行。PARA タグと時刻、そしてファイル名の元になったコードを出す。
+/// 日付一覧の 1 行。PARA タグとフォルダ名と時刻を出す（番号は索引用なので出さない）。
 private struct DayNoteRow: View {
     let item: NoteWithNode
 
@@ -183,9 +183,6 @@ private struct DayNoteRow: View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 6) {
                 ParaTag(para: item.node.para)
-                Text(item.node.code)
-                    .appFont(.caption1, monospacedDigits: true)
-                    .foregroundStyle(.secondary)
                 Text(item.node.title)
                     .appFont(.caption1)
                     .foregroundStyle(.secondary)
@@ -211,7 +208,7 @@ struct ParaTag: View {
     let para: Para
 
     var body: some View {
-        Text(para.title)
+        Text(para.displayTitle)
             .appFont(.caption2, weight: .semibold)
             .padding(.horizontal, 7)
             .padding(.vertical, 2)

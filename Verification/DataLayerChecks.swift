@@ -293,13 +293,11 @@ struct Harness {
               Usage.access(to: .aiChat, isPro: false, usedThisMonth: 0) == .locked)
         check("ジャーナル抽出は Pro 専用（無料枠なし）",
               Usage.access(to: .journalExtract, isPro: false, usedThisMonth: 0) == .locked)
-        check("手で書くのも Pro 専用",
-              Usage.access(to: .journalWrite, isPro: false, usedThisMonth: 0) == .locked)
         check("無料枠を持つのはオンボーディングの体験だけ",
               ProFeature.allCases.filter { $0.monthlyFreeLimit > 0 } == [.onboardingChat, .onboardingExtract])
         check("オンボーディングの枠は Paywall に並べない",
               !ProFeature.onboardingChat.isListed && !ProFeature.onboardingExtract.isListed
-                && ProFeature.aiChat.isListed && ProFeature.journalWrite.isListed)
+                && ProFeature.aiChat.isListed)
 
         // --- 課金: 消費の記録 ---
         let meter = try Store.inMemory()

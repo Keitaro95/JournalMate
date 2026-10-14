@@ -37,12 +37,12 @@ struct CalendarFilterBar: View {
         } else {
             ScrollView(.horizontal) {
                 HStack(spacing: 8) {
-                    FilterChip(title: String(localized: "All"), code: nil,
+                    FilterChip(title: String(localized: "All"),
                                isOn: checkedFolderIDs.isEmpty, tint: tint) {
                         checkedFolderIDs.removeAll()
                     }
                     ForEach(folders) { folder in
-                        FilterChip(title: folder.title, code: folder.code,
+                        FilterChip(title: folder.title,
                                    isOn: checkedFolderIDs.contains(folder.id), tint: tint) {
                             toggle(folder)
                         }
@@ -82,7 +82,7 @@ struct ParaTabBar: View {
             HStack(spacing: 0) {
                 tab(nil, title: String(localized: "All"), symbol: "square.grid.2x2", tint: .accentColor)
                 ForEach(Para.allCases) { para in
-                    tab(para, title: para.title, symbol: para.symbol, tint: para.tint)
+                    tab(para, title: para.displayTitle, symbol: para.symbol, tint: para.tint)
                 }
             }
             .padding(.horizontal, 8)
@@ -142,7 +142,6 @@ private struct UnderlineMatch: ViewModifier {
 private struct FilterChip: View {
     let title: String
     /// フォルダの番号。ファイル名の接頭辞と同じものを見せて、ツリーと結び付ける。
-    let code: String?
     let isOn: Bool
     let tint: Color
     let action: () -> Void
@@ -154,11 +153,6 @@ private struct FilterChip: View {
                     .foregroundStyle(isOn ? tint : Color.secondary)
                 Text(title)
                     .lineLimit(1)
-                if let code {
-                    Text(code)
-                        .appFont(.caption2, monospacedDigits: true)
-                        .foregroundStyle(.tertiary)
-                }
             }
             .appFont(.subheadline)
             .foregroundStyle(isOn ? Color.primary : .secondary)

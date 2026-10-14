@@ -1,6 +1,6 @@
 # 提出用の文面（App Store Connect / Devpost）
 
-最終更新: 2026-09-25
+最終更新: 2026-10-06（1.0.2）
 
 コピペ用の下書き。`[ ]` の箇所は決まったら埋める。
 締め切りと段取りは [todo.md](todo.md) の冒頭に。
@@ -37,7 +37,7 @@ AI と話すだけで、その日のジャーナルができあがる。ふだ�
 ### 説明文（日本語）
 
 アプリの今の動き（`JournalMate/Core/Usage.swift` の `ProFeature`）に合わせてある。
-プランなしでできるのは「見返す・書き出す・取り込む」まで。書くことと AI はトライアルか Pro / Max。
+プランなしでも「書く・見返す・書き出す・取り込む」はずっと無料。AI だけがトライアルか Pro / Max。
 
 ```
 話したことが、その日のジャーナルになる。
@@ -62,6 +62,9 @@ JournalMate は、AI との対話をそのまま日々の記録に変え、あ�
 ■ カレンダーとツリーで見返す
 カレンダーで日付を選べばその日のジャーナルが、ツリーで辿ればテーマごとの記録が見られます。
 
+■ 画像にして共有する
+書いたジャーナルを、日付・題名・本文の入った画像にして、Instagram や X などに共有できます。共有する前に見え方を確かめられます。
+
 ■ データはあなたの端末に
 記録は端末内だけに保存されます。AI の機能を使うときだけ、同意のうえで文章を送ります。
 すべての記録は、フォルダ階層ごと Markdown（Obsidian 互換）で書き出せます。ロックインはありません。
@@ -70,16 +73,16 @@ JournalMate は、AI との対話をそのまま日々の記録に変え、あ�
 ・支払いの登録なしで、すべての機能を 7 日間お試しいただけます（AI は Claude Haiku）
 ・自動で課金されることはありません
 
-■ プランが無いときにできること
-・これまでのジャーナルをカレンダーとツリーで見返す
+■ プランが無くても、ずっと無料でできること
+・自分の言葉でジャーナルやノートを書く・直す
+・これまでのジャーナルをカレンダーとフォルダで見返す
 ・Markdown（Obsidian 互換）での書き出し、バックアップからの復元
 ・メモ.app や Obsidian からのメモの取り込み
-・ジャーナルを書くこと、AI の機能には Pro か Max（またはトライアル）が必要です
+・AI の機能には Pro か Max（またはトライアル）が必要です
 
 ■ Pro でできること（Claude Sonnet）
 ・AI とのチャット
 ・AI でのジャーナル書き起こしと、PARA への自動振り分け
-・自分の言葉でジャーナルやノートを書く・直す
 ・過去のジャーナルから引き出す：AI が過去の記録を踏まえて語りかけ、「あの時どうしてたっけ」「どうしよう」と迷ったときに過去の自分から答えを引き出します
 ・自分の傾向：集めた原本とジャーナルから、いまの傾向と向かうべき道を AI が書き出します
 ※ 1 日・1 か月あたりの AI の利用量に上限があります
@@ -128,6 +131,9 @@ Each folder has three layers: raw (the original information you collect), knowle
 ■ LOOK BACK BY CALENDAR OR TREE
 Pick a date on the calendar to see that day's journal, or follow the tree to see records by theme.
 
+■ SHARE AS AN IMAGE
+Turn a journal entry into an image with its date, title and text, and share it to Instagram, X and more. Preview how it looks before you share.
+
 ■ YOUR DATA STAYS ON YOUR DEVICE
 Your records are stored only on your device. Text is sent to the AI only when you use an AI feature, and only with your consent.
 You can export everything, folder hierarchy included, as Markdown (Obsidian-compatible). No lock-in.
@@ -136,16 +142,16 @@ You can export everything, folder hierarchy included, as Markdown (Obsidian-comp
 • Try every feature for 7 days with no payment details required (AI powered by Claude Haiku)
 • You will never be charged automatically
 
-■ WITHOUT A PLAN
+■ FREE FOREVER, NO PLAN NEEDED
+• Write and edit journals and notes in your own words
 • Look back on your past journals in Calendar and Folders
 • Export as Markdown (Obsidian-compatible) and restore from backups
 • Import memos from the Notes app or Obsidian
-• Writing journals and AI features require Pro or Max (or the free trial)
+• AI features require Pro or Max (or the free trial)
 
 ■ PRO (CLAUDE SONNET)
 • Conversations with AI
 • AI journal extraction, automatically filed into PARA
-• Write and edit journals and notes in your own words
 • Draw on your past journals: the AI talks with you with your past records in mind, and when you wonder "What did I do last time?" or "What should I do?", it brings back answers from your past self
 • Your patterns: the AI blends your collected sources and journals, and writes out your current patterns and the direction to head in
 * There are daily and monthly limits on AI usage
@@ -213,7 +219,8 @@ For people who want to keep a journal but find daily writing and organizing hard
 - Free trial, no purchase: Settings > "Change Plan" (プランを変更) > "7-Day Free Trial" (7 日間の無料トライアル). Unlocks everything for 7 days, no payment details, never converts to paid. Once per device.
 - Features:
   - Chat tab: talk to the AI, tap the record button to make a journal entry.
-  - Journal tab (ジャーナル): write by hand (trial / Pro / Max).
+  - Journal tab (ジャーナル): write by hand, free with no plan.
+  - Open a note > "…" menu > "Share" (共有): share the entry as an image.
   - Calendar tab (カレンダー): entries by date.
   - Folders tab (フォルダ): Journal + PARA > folders > raw / knowledge / journal.
   - Settings > "Import Memos" (外部からメモを登録): import from Notes or Obsidian; any .txt / .md file in Files works.
@@ -234,10 +241,10 @@ Not applicable: not a regulated service (medical, financial, health) and no prot
 
 6. IN-APP PURCHASES
 Auto-renewable subscriptions, one group:
-- Pro Monthly / Annual (app.journalmate.pro.monthly / .pro.annual): writing journals, AI chat, AI journal extraction, past recall, "Your patterns". Claude Sonnet, daily and monthly usage limits.
+- Pro Monthly / Annual (app.journalmate.pro.monthly / .pro.annual): AI chat, AI journal extraction, past recall, "Your patterns". Claude Sonnet, daily and monthly usage limits.
 - Max Monthly / Annual (app.journalmate.max.monthly / .max.annual): everything in Pro with Claude Opus, twice Pro's limits.
-Free without purchase: viewing past journals, import, export, backup restore, plus one AI conversation and one extraction in onboarding. Writing and AI need the trial, Pro or Max.
-Purchase flow: Settings > "Change Plan" (プランを変更), or use a Pro feature without a plan (send a chat message, or open the Journal tab) to open the paywall. Both have "Restore Purchases" (購入を復元). Testable in the sandbox.
+Free without purchase: writing and editing journals, viewing them in Calendar and Folders, sharing as an image, import, export, backup restore, plus one AI conversation and one extraction in onboarding. Only AI features need the trial, Pro or Max.
+Purchase flow: Settings > "Change Plan" (プランを変更), or use an AI feature without a plan (send a message in the Chat tab) to open the paywall. Both have "Restore Purchases" (購入を復元). Testable in the sandbox.
 ```
 
 #### 日本語
@@ -255,7 +262,8 @@ JournalMate は、日記を続けたいけれど、毎日書くことや書い�
 - 購入せずにすべての AI 機能を使うには：設定 >「プランを変更」（Change Plan）>「7 日間の無料トライアル」（7-Day Free Trial）。支払い情報の登録は不要で、有料のサブスクリプションに切り替わることはありません。1 端末につき 1 回です。
 - 各機能の場所：
   - チャットタブ：AI と話し、記録ボタンを押すと会話がジャーナルになります。
-  - ジャーナルタブ：AI を使わずに自分で書けます（トライアル / Pro / Max）。
+  - ジャーナルタブ：AI を使わずに自分で書けます（プランなしで無料）。
+  - ノートを開く >「…」>「共有」（Share）：ジャーナルを画像にして共有できます。
   - カレンダータブ：日付を選ぶと、その日の記録が表示されます。
   - フォルダタブ：Journal と PARA > 自分のフォルダ > raw / knowledge / journal。
   - 設定 >「外部からメモを登録」（Import Memos）：メモ.app や Obsidian から取り込めます。ファイル App にある任意の .txt / .md ファイルで試せます。
@@ -276,12 +284,12 @@ JournalMate は、日記を続けたいけれど、毎日書くことや書い�
 
 6. App 内課金
 1 つのサブスクリプショングループに、自動更新サブスクリプションがあります。
-- Pro 月額（app.journalmate.pro.monthly）/ Pro 年額（app.journalmate.pro.annual）：ジャーナルを書く、AI とのチャット、AI でのジャーナル書き起こし、過去のジャーナルから引き出す、自分の傾向。Claude Sonnet を使用し、1 日・1 か月あたりの利用量に上限があります。
+- Pro 月額（app.journalmate.pro.monthly）/ Pro 年額（app.journalmate.pro.annual）：AI とのチャット、AI でのジャーナル書き起こし、過去のジャーナルから引き出す、自分の傾向。Claude Sonnet を使用し、1 日・1 か月あたりの利用量に上限があります。
 - Max 月額（app.journalmate.max.monthly）/ Max 年額（app.journalmate.max.annual）：Pro のすべての機能を Claude Opus で。利用量の上限は Pro の 2 倍です。
-購入なしで使えるもの：カレンダーとフォルダでの過去のジャーナルの閲覧、取り込み、書き出し、バックアップからの復元。オンボーディングでは、AI との会話と AI での書き起こしを 1 回ずつ無料で試せます。ジャーナルを書くことと AI の機能には、トライアル、Pro、Max のいずれかが必要です。
+購入なしで使えるもの：ジャーナルを書く・直す、カレンダーとフォルダでの閲覧、画像にして共有、取り込み、書き出し、バックアップからの復元。オンボーディングでは、AI との会話と AI での書き起こしを 1 回ずつ無料で試せます。AI の機能には、トライアル、Pro、Max のいずれかが必要です。
 購入画面への行き方：
 - 設定 >「プランを変更」（Change Plan）、または
-- プランなしで Pro の機能を使う（例：チャットタブでメッセージを送る、ジャーナルタブを開く）と Paywall が開きます。
+- プランなしで AI の機能を使う（例：チャットタブでメッセージを送る）と Paywall が開きます。
 どちらの画面にも「購入を復元」（Restore Purchases）があります。購入はサンドボックスで試せます。
 ```
 

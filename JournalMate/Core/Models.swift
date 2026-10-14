@@ -29,6 +29,8 @@ enum Para: String, CaseIterable, Identifiable, Codable {
     /// ふつうのジャーナルは分類しないこと自体が目的なので、ルートがそのまま置き場になる。
     var acceptsNotesAtRoot: Bool { self == .journal }
 
+    /// データの名前。ルートのパス（"/Journal"）・書き出し・AI への指示に使うので、**翻訳しない**。
+    /// 画面には `displayTitle` を出す。
     var title: String {
         switch self {
         case .journal: return "Journal"
@@ -39,13 +41,35 @@ enum Para: String, CaseIterable, Identifiable, Codable {
         }
     }
 
+    /// 画面に出す名前。日本語なら「ジャーナル」「プロジェクト」「興味あり」「情報置き場」「アーカイブ」。
+    var displayTitle: String {
+        switch self {
+        case .journal: return String(localized: "Journal")
+        case .projects: return String(localized: "Projects")
+        case .areas: return String(localized: "Areas")
+        case .resources: return String(localized: "Resources")
+        case .archives: return String(localized: "Archives")
+        }
+    }
+
+    /// Folders の一覧に出す、ひと言の説明。Settings の「しくみ」では長い説明（`subtitle`）を出す。
+    var shortSubtitle: String {
+        switch self {
+        case .journal: return String(localized: "Everyday journal")
+        case .projects: return String(localized: "Things you want to make happen soon")
+        case .areas: return String(localized: "No deadline, but it interests you")
+        case .resources: return String(localized: "A place for any info, like notes and links")
+        case .archives: return String(localized: "Your archive and storage")
+        }
+    }
+
     var subtitle: String {
         switch self {
         case .journal: return String(localized: "Everyday journal")
-        case .projects: return String(localized: "Short-term projects")
-        case .areas: return String(localized: "Ongoing responsibilities")
-        case .resources: return String(localized: "Interests and learning")
-        case .archives: return String(localized: "Finished and stored")
+        case .projects: return String(localized: "Finished deliverables and tasks in progress")
+        case .areas: return String(localized: "Facts about your surroundings, work, and tastes, with no deadline")
+        case .resources: return String(localized: "Technical material you looked up and original sources")
+        case .archives: return String(localized: "Finished projects and data you no longer use, moved here folder by folder")
         }
     }
 

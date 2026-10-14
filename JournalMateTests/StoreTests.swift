@@ -103,6 +103,46 @@ struct StoreTests {
         #expect(markers["2026-09-19"]?.count == 1)
     }
 
+    @Test func journalWithoutDestinationGoesToJournalRoot() throws {
+        let saved = try store.createJournal(in: nil, title: "行き先なし", body: "保存先を選ばずに書いた", occurredAt: when)
+        #expect(saved.node.para == .journal)
+        #expect(saved.node.parentID == nil, "Journal のルートに置く")
+        #expect(saved.note.layer == .journal)
+
+        // Calendar（その日の一覧）と Folders（全文検索・フォルダの中）で見つかる。
+        #expect(try store.notes(on: when).map(\.note.id) == [saved.note.id])
+        #expect(try store.search("保存先を選ばず").count == 1)
+        #expect(try store.notes(in: saved.node, layer: .journal).map(\.id) == [saved.note.id])
+    }
+
+    @Test func journalWithDestinationGoesThere() throws {
+        let areas = try #require(store.root(for: .areas))
+        let folder = try store.createFolder(under: areas, title: "旅行")
+        let saved = try store.createJournal(in: folder, title: "選んだ", body: "旅行のメモ", occurredAt: when)
+        #expect(saved.node.id == folder.id)
+    }
+
+    @Test func movingANoteChangesOnlyItsFolder() throws {
+        let saved = try store.createJournal(in: nil, title: "あとで移す", body: "最初は Journal に置いた", occurredAt: when)
+        let projects = try #require(store.root(for: .projects))
+        let folder = try store.createFolder(under: projects, title: "引っ越し")
+
+        try store.move(saved.note, to: folder)
+        let moved = try #require(try store.note(id: saved.note.id))
+        #expect(moved.nodeID == folder.id)
+        #expect(moved.layer == .journal, "層は変えない")
+        #expect(moved.filename == ParaCode.filename(code: folder.code, layer: .journal,
+                                                    title: saved.note.title, occurredAt: when),
+                "ファイル名は新しいフォルダのコードから作り直す")
+        #expect(moved.body == saved.note.body)
+        #expect(moved.occurredAt == saved.note.occurredAt, "カレンダー上の位置は動かさない")
+
+        // Folders では新しいフォルダにだけ出て、Calendar ではフォルダが新しくなる。
+        #expect(try store.notes(in: saved.node, layer: .journal).isEmpty)
+        #expect(try store.notes(in: folder, layer: .journal).map(\.id) == [saved.note.id])
+        #expect(try store.notes(on: when).map(\.node.id) == [folder.id])
+    }
+
     @Test func japaneseFullTextSearch() throws {
         let areas = try #require(store.root(for: .areas))
         let folder = try store.createFolder(under: areas, title: "保険")

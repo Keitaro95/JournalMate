@@ -2,6 +2,7 @@ import CryptoKit
 import DeviceCheck
 import Foundation
 import Observation
+import os
 
 /// ゲートウェイのセッション。App Attest で「本物のアプリである」ことを示し、
 /// 24 時間ぶんのトークンを受け取る。
@@ -57,18 +58,25 @@ final class GatewaySession {
         case appAttest(Int)
         case server(Int, String)
 
+        /// 端末の確認そのものを断られた（401 / 400）。手元の鍵を捨てて attestation からやり直せば通る見込みがある。
+        var isAttestRejected: Bool {
+            if case .server(let status, _) = self { return status == 401 || status == 400 }
+            return false
+        }
+
         var errorDescription: String? {
             switch self {
             case .unavailable:
-                return String(localized: "Could not prepare a session")
+                return String(localized: "We couldn't connect to AI right now. Please wait a moment and try again.")
             case .notConfigured:
                 return String(localized: "The relay server is not configured (BillingConfig.gateway)")
             case .notSupported:
                 return String(localized: "App Attest is not available on this device")
-            case .appAttest(let code):
-                return String(localized: "Could not verify this app with Apple (App Attest \(code)). Please try again later.")
-            case .server(let status, let body):
-                return String(localized: "The relay server returned an error (\(status))\n\(String(body.prefix(200)))")
+            case .appAttest:
+                return String(localized: "We couldn't connect to AI right now. Please wait a moment and try again.")
+            case .server:
+                // サーバの本文（JSON）は見せない。中身は `post` でログにだけ残す。
+                return String(localized: "We couldn't connect to AI right now. Please wait a moment and try again.")
             }
         }
     }
@@ -99,7 +107,8 @@ final class GatewaySession {
         return token
     }
 
-    private func authenticate() async throws -> String {
+    /// `retried` は、サーバに断られて鍵を作り直した後の 2 回目か。やり直しは 1 回だけ（ループさせない）。
+    private func authenticate(retried: Bool = false) async throws -> String {
         guard let challengeURL = BillingConfig.challengeURL,
               let sessionURL = BillingConfig.sessionURL else { throw Failure.notConfigured }
         // 端末 ID。ゲートウェイはこれで契約・使用量・無料枠・トライアルを引く。
@@ -140,8 +149,9 @@ final class GatewaySession {
                 // （新しい鍵は、サーバで同じ端末 ID に結びつく）。
                 // invalidKey のはずだが、端末によって invalidInput などで返ることがあるので広く拾う。
                 Keychain.delete(Self.keyIDAccount)
-                return try await authenticate()
+                return try await authenticate(retried: retried)
             } catch let error as DCError {
+                Self.logger.error("App Attest failed: \(error.code.rawValue)")
                 throw Failure.appAttest(error.code.rawValue)
             }
             payload["keyId"] = keyID
@@ -153,15 +163,28 @@ final class GatewaySession {
                 keyID = try await service.generateKey()
                 attestation = try await Self.attestWithRetry(service, keyID: keyID, clientDataHash: clientDataHash)
             } catch let error as DCError {
+                Self.logger.error("App Attest failed: \(error.code.rawValue)")
                 throw Failure.appAttest(error.code.rawValue)
             }
             payload["keyId"] = keyID
             payload["attestation"] = attestation.base64EncodedString()
-            // 保存は成功してから。途中で落ちたら次回もう一度 attest からやり直す。
-            Keychain.write(keyID, account: Self.keyIDAccount)
         }
 
-        let issued = try await postSession(to: sessionURL, payload: payload)
+        let issued: Issued
+        do {
+            issued = try await postSession(to: sessionURL, payload: payload)
+        } catch let failure as Failure where failure.isAttestRejected && !retried {
+            // サーバに鍵が登録されていない（初回の登録が途中で落ちた・KV から消えた）か、検証で弾かれた。
+            // 手元の keyId を捨てて、鍵を作るところから 1 回だけやり直す
+            // （新しい鍵は、サーバで同じ端末 ID に結びつく）。
+            Keychain.delete(Self.keyIDAccount)
+            return try await authenticate(retried: true)
+        }
+        // 鍵の保存は、サーバが登録を受け付けてから。先に保存すると、初回の登録が落ちたときに
+        // 「手元に鍵があるのにサーバには無い」状態になり、assertion がずっと通らない。
+        if payload["attestation"] != nil, let keyID = payload["keyId"] {
+            Keychain.write(keyID, account: Self.keyIDAccount)
+        }
         token = issued.token
         expiresAt = Date(timeIntervalSince1970: issued.expiresAt)
         return issued.token
@@ -262,10 +285,13 @@ final class GatewaySession {
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
             let status = (response as? HTTPURLResponse)?.statusCode ?? -1
-            throw Failure.server(status, String(data: data, encoding: .utf8) ?? "")
+            let body = String(data: data, encoding: .utf8) ?? ""
+            Self.logger.error("\(url.path, privacy: .public) returned \(status): \(body, privacy: .public)")
+            throw Failure.server(status, body)
         }
         return data
     }
 
     private static let keyIDAccount = "appattest.key.id"
+    private static let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "JournalMate", category: "GatewaySession")
 }

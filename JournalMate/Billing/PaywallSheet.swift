@@ -36,6 +36,8 @@ struct PaywallSheet: View {
                     } footer: {
                         if feature.monthlyFreeLimit > 0 {
                             Text("Free users can use this up to \(feature.monthlyFreeLimit) times a month. You've used up this month's allowance.")
+                        } else if feature == .aiChat {
+                            Text("AI chat is available with a plan. The AI reads the journals you've written and gives you summaries and reflections.")
                         } else {
                             Text("This feature needs Pro, Max, or the free trial.")
                         }
@@ -87,7 +89,7 @@ struct PaywallSheet: View {
 
                 if !entitlement.isSubscribed {
                     Section {
-                        Label("Without a plan, you can still view and export your past journals",
+                        Label("Without a plan, writing journals, looking back in Calendar, and exporting stay free forever",
                               systemImage: "checkmark.seal")
                             .appFont(.footnote)
                             .foregroundStyle(.secondary)

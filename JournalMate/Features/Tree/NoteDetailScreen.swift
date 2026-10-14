@@ -4,17 +4,26 @@ import SwiftUI
 struct NoteDetailScreen: View {
 
     @Environment(Store.self) private var store
-    @Environment(Entitlement.self) private var entitlement
 
-    let note: Note
-    let node: Node
     var startsEditing = false
 
+    /// 表示中のノートと置き場所。保存先を変えると両方とも新しいものに差し替わる。
+    @State private var note: Note
+    @State private var node: Node
     @State private var title = ""
     @State private var body_ = ""
     @State private var isEditing = false
+    @State private var isPickingFolder = false
+    @State private var isSharing = false
+    /// 移した先のフォルダの名前。「{フォルダ名}に移しました」に使う。
+    @State private var movedFolder: String?
     @State private var errorMessage: String?
-    @State private var paywall: ProFeature?
+
+    init(note: Note, node: Node, startsEditing: Bool = false) {
+        _note = State(initialValue: note)
+        _node = State(initialValue: node)
+        self.startsEditing = startsEditing
+    }
 
     var body: some View {
         ScrollView {
@@ -38,23 +47,38 @@ struct NoteDetailScreen: View {
             }
             .padding()
         }
-        .navigationTitle(note.filename)
+        .navigationTitle(node.parentID == nil ? node.para.displayTitle : node.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button(isEditing ? "Done" : "Edit") {
-                    // 書き直すのも有料。編集中に切れた場合は、書いた分を失わないよう保存は通す。
-                    guard isEditing || entitlement.isPro else {
-                        paywall = .journalWrite
-                        return
+                if isEditing {
+                    Button("Done") {
+                        save()
+                        isEditing = false
                     }
-                    if isEditing { save() }
-                    isEditing.toggle()
+                } else {
+                    // Safari と同じ「…」。書いている途中は迷わせないよう、編集中は「完了」だけにする。
+                    Menu {
+                        Button("Edit", systemImage: "pencil") { isEditing = true }
+                        Button("Share", systemImage: "square.and.arrow.up") { isSharing = true }
+                    } label: {
+                        Label("More", systemImage: "ellipsis.circle")
+                    }
+                    .accessibilityIdentifier("NoteDetail.More")
                 }
             }
         }
-        .sheet(item: $paywall) { feature in
-            PaywallSheet(feature: feature)
+        .sheet(isPresented: $isSharing) {
+            // 共有するのは保存済みの中身。パス・フォルダ・タグは載せない。
+            SharePreviewSheet(content: ShareCardContent(
+                date: note.updatedAt, title: note.title, body: note.body))
+        }
+        .sheet(isPresented: $isPickingFolder) {
+            FolderPickerSheet(layer: note.layer, isMoving: true) { move(to: $0) }
+        }
+        .alert(movedFolder.map { String(localized: "Moved to \($0)") } ?? "",
+               isPresented: .constant(movedFolder != nil)) {
+            Button("OK") { movedFolder = nil }
         }
         .alert("Error", isPresented: .constant(errorMessage != nil)) {
             Button("OK") { errorMessage = nil }
@@ -64,7 +88,7 @@ struct NoteDetailScreen: View {
         .task {
             title = note.title
             body_ = note.body
-            isEditing = startsEditing && entitlement.isPro
+            isEditing = startsEditing
         }
     }
 
@@ -82,15 +106,59 @@ struct NoteDetailScreen: View {
                     .appFont(.caption1)
                     .foregroundStyle(.secondary)
             }
-            Text("\(node.path)/\(note.layer.directoryName)/")
-                .appFont(.caption2, monospacedDigits: true)
-                .foregroundStyle(.tertiary)
+            locationButton
         }
+    }
+
+    /// 置き場所のパス。押すと Journal タブで書くときと同じフォルダ選択が開き、選んだ先へ移す。
+    private var locationButton: some View {
+        Button {
+            isPickingFolder = true
+        } label: {
+            HStack(spacing: 6) {
+                Image(systemName: "folder")
+                    .foregroundStyle(node.para.tint)
+                Text(verbatim: "\(node.path)/\(note.layer.directoryName)/")
+                    .appFont(.caption2, monospacedDigits: true)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+                    .truncationMode(.head)
+                Image(systemName: "chevron.right")
+                    .appFont(.caption2, weight: .semibold)
+                    .foregroundStyle(.tertiary)
+            }
+            .padding(.horizontal, 10)
+            .padding(.vertical, 6)
+            .background(.quaternary.opacity(0.5), in: .capsule)
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(Text("Change Folder"))
+        .accessibilityValue(Text(verbatim: "\(node.path)/\(note.layer.directoryName)/"))
     }
 
     private func save() {
         do {
             try store.updateNote(note, title: title, body: body_)
+            // 共有の画像は `note` から作るので、編集日と中身を読み直しておく。
+            if let saved = try store.note(id: note.id) { note = saved }
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    /// 本文と日付はそのまま、置き場所だけを変える。
+    private func move(to destination: Node) {
+        guard destination.id != node.id else { return }
+        do {
+            // ファイル名は題名から作るので、書きかけの題名を保存して読み直してから移す。
+            if isEditing {
+                try store.updateNote(note, title: title, body: body_)
+                if let saved = try store.note(id: note.id) { note = saved }
+            }
+            try store.move(note, to: destination)
+            if let moved = try store.note(id: note.id) { note = moved }
+            node = destination
+            movedFolder = destination.parentID == nil ? destination.para.displayTitle : destination.title
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -105,15 +173,19 @@ struct MarkdownText: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             ForEach(Array(markdown.components(separatedBy: "\n").enumerated()), id: \.offset) { _, line in
-                row(for: line)
+                MarkdownLine(line: line)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .textSelection(.enabled)
     }
+}
 
-    @ViewBuilder
-    private func row(for line: String) -> some View {
+/// Markdown の 1 行。共有用の画像（`ShareCard`）も行ごとにページへ詰めるので、行単位で外に出しておく。
+struct MarkdownLine: View {
+    let line: String
+
+    var body: some View {
         let trimmed = line.trimmingCharacters(in: .whitespaces)
         if trimmed.isEmpty {
             Color.clear.frame(height: 2)

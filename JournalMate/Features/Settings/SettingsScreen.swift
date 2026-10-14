@@ -23,9 +23,17 @@ struct SettingsScreen: View {
         NavigationStack {
             Form {
                 Section {
+                    // ただの表記。青にするとボタンに見えるので、押せる「Change Plan」とは色を分ける。
                     LabeledContent("Plan") {
                         Text(planLabel)
-                            .foregroundStyle(entitlement.isPro ? Color.accentColor : .secondary)
+                            .foregroundStyle(.primary)
+                    }
+
+                    if let planDate {
+                        LabeledContent(planDate.label) {
+                            Text(planDate.date.formatted(date: .long, time: .omitted))
+                                .foregroundStyle(.primary)
+                        }
                     }
 
                     // トライアル・Pro・Max の切り替えはここから（オンボーディングと同じ画面）。
@@ -59,11 +67,11 @@ struct SettingsScreen: View {
                     } else if entitlement.paidPlan == .pro {
                         Text("All AI features are available with Claude Sonnet. There are daily and monthly usage limits. If you reach them often, Max offers twice the usage.")
                     } else if entitlement.usesTrial, let ends = entitlement.trialEndsAt {
-                        Text("Free trial: every feature is available, with AI powered by Claude Haiku, until \(ends.formatted(date: .abbreviated, time: .shortened)). There is a daily usage limit. Afterward, writing journals and AI need Pro or Max. You won't be charged, and your journals stay viewable and exportable.")
+                        Text("Free trial: every feature is available, with AI powered by Claude Haiku, until \(ends.formatted(date: .abbreviated, time: .shortened)). There is a daily usage limit. Afterward, AI needs Pro or Max. You won't be charged, and writing journals, looking back in Calendar, and exporting stay free.")
                     } else if entitlement.isPro {
                         Text("All AI features are available. There is a daily usage limit, but normal use won't reach it.")
                     } else {
-                        Text("Without a plan, you can view your journals in Calendar and Folders and export them. Writing journals and AI need Pro or Max.")
+                        Text("Without a plan, writing journals, looking back in Calendar and Folders, and exporting stay free forever. AI chat needs a plan.")
                     }
                 }
 
@@ -208,6 +216,17 @@ struct SettingsScreen: View {
         }
     }
 
+    /// 「更新日」か「終了日」。トライアルは自動で課金されないので、いつも「終了日」と書く。
+    private var planDate: (label: LocalizedStringKey, date: Date)? {
+        if entitlement.isSubscribed, let renewsAt = entitlement.renewsAt {
+            return (entitlement.willRenew ? "Renews On" : "Ends On", renewsAt)
+        }
+        if entitlement.usesTrial, let ends = entitlement.trialEndsAt {
+            return ("Ends On", ends)
+        }
+        return nil
+    }
+
     private var planLabel: String {
         if let paidPlan = entitlement.paidPlan { return paidPlan.title }
         if entitlement.usesTrial { return String(localized: "Trial") }
@@ -265,51 +284,44 @@ private struct ShareSheet: UIViewControllerRepresentable {
     func updateUIViewController(_ controller: UIActivityViewController, context: Context) {}
 }
 
-/// 番号体系と 3 層構造の説明。設計を忘れたとき用。
+/// フォルダ（PARA）と 3 種類のノートの説明。
+/// 番号（node.code）は画面に出さないので、ここでも説明しない。
 private struct StructureExplainer: View {
     var body: some View {
         List {
-            Section("Numbers Come from the Hierarchy") {
-                Text("""
-                    3      1      5      2
-                    │      │      │      └ Insurance  level 3
-                    │      │      └─────── Travel     level 2
-                    │      └────────────── Life       level 1
-                    └───────────────────── Areas      PARA
-                    """)
-                .appFont(.caption1, monospacedDigits: true)
-                Text("The hierarchy is the real structure. The code goes at the start of each file name, so you can filter to \"only what starts with 3152\" in one step.")
-                .appFont(.footnote)
-                .foregroundStyle(.secondary)
-            }
-
-            Section("PARA Leading Digits") {
+            Section {
                 ForEach(Para.allCases) { para in
-                    LabeledContent("\(para.title) (\(para.subtitle))") {
-                        Text("\(para.leadingDigit)00s")
-                            .appFont(.caption1, monospacedDigits: true)
+                    Label {
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text(para.displayTitle)
+                                .appFont(.subheadline, weight: .semibold)
+                            if para != .journal {
+                                Text(para.subtitle)
+                                    .appFont(.caption1)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    } icon: {
+                        Image(systemName: para.symbol)
+                            .foregroundStyle(para.tint)
                     }
                 }
+            } header: {
+                Text("Folders")
+            } footer: {
+                Text("Sort by how involved you are right now, not by topic or field.")
             }
 
             Section("Three Kinds of Notes") {
                 ForEach(Layer.allCases) { layer in
                     VStack(alignment: .leading, spacing: 3) {
-                        Text(verbatim: "\(layer.title) — \(layer.directoryName)/")
+                        Text(layer.title)
                             .appFont(.subheadline, weight: .semibold)
                         Text(layer.summary)
                             .appFont(.caption1)
                             .foregroundStyle(.secondary)
                     }
                 }
-            }
-
-            Section("File Names") {
-                Text("3152_202609191330.md")
-                    .appFont(.body, monospacedDigits: true)
-                Text("Journal file names include the date and time, down to the minute.")
-                    .appFont(.footnote)
-                    .foregroundStyle(.secondary)
             }
         }
         .navigationTitle("How It Works")

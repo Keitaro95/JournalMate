@@ -1,6 +1,81 @@
 # TODO
 
-最終更新: 2026-09-27
+最終更新: 2026-10-13
+
+---
+
+## 最新タスク（2026-10-13〜）分身のアバターを AI エージェントとしてチャットに立てる
+
+計画の全文: [docs/plans/2026-10-13-avatar-agent-plan.md](docs/plans/2026-10-13-avatar-agent-plan.md)（試作は `docs/feat/avatar/`）
+
+### 実装の前にもらうもの
+- [ ] **SST のコミュニケーションのモデルの定義**（項目・尺度・場面）。これが無いと SST の部分は作れない（ほかは先に進められる）
+- [ ] **Clef の原価**（Workers AI の課金単位）。1 日 5 回の上限をこれで決める
+
+### Phase 1 — Gateway に `/v1/avatar/analyze`（アプリより先にデプロイ）
+- [ ] `Gateway/src/avatar.ts` を作る。試作 `docs/feat/avatar/index.ts` の 31 問と回答の正規化を移す（正規化は純関数にする）
+- [ ] `index.ts` の `switch` にルートを足す。`authenticate` → `USER_LIMITER` → `subscriptionPlan` の順に通し、**Pro / Max 以外は 402**。端末ごと 1 日 5 回まで（KV `CACHE`）
+- [ ] 本文は `data:image/(jpeg|png|webp);base64,` だけ受け、5.5MB まで。エラーの中身はアプリに返さない
+- [ ] `wrangler.toml` に `[ai] binding = "AI"`、`Env` に `AI: Ai`
+- [ ] `Gateway/test/avatar.test.ts`（正規化・未知の値・プラン無しで 402・本文の形）
+- [ ] `npm test` → `npx wrangler deploy`
+
+### Phase 2 — アバターをアプリへ取り込む（`Features/Avatar/`）
+- [ ] 試作の `AvatarConfig` / `AvatarView` / `AvatarEditorView` / `CameraPicker` を移す。`AvatarMakerApp` は `AvatarStorage` だけ残す（名前の `agentName` も持たせる）
+- [ ] `ClefClient` を `AvatarAnalyzer` に変える。URL は `BillingConfig.avatarAnalyzeURL`、認証は `GatewaySession` の JWT
+- [ ] `AgentAvatarView`（idle / thinking / talking）。talking の間は `mouthOpen` を切り替える
+- [ ] 文言と選択肢のラベルを `Localizable.xcstrings` に日英で入れる
+- [ ] `NSCameraUsageDescription` を pbxproj の両方の構成と `InfoPlist.xcstrings` に足す
+- [ ] `PrivacyInfo.xcprivacy`・`docs/privacy.html`・`submission.md` の審査メモに「写真は判定にだけ送り、保存しない」と書く
+- [ ] **購入時のオンボーディング**
+  - [ ] `SubscriptionService.purchase` が `true` を返し、アバターがまだ無いときに `pendingAvatarOnboarding` を立てる（起動時の `customerInfoStream` では立てない）
+  - [ ] `RootView` から `AvatarOnboardingScreen` を出す。初回オンボーディングの後に出す
+  - [ ] 画面の流れ: 紹介 → 写真の同意 → 撮る / 手で作る → 判定 → 編集（60% 未満は「要確認」）→ 名前 → 完了。どこでも「あとで」で閉じられる
+- [ ] Settings のプランの直後に「アバター」の行（作り直し・編集・撮り直し）。Pro / Max 以外が押したら Paywall
+
+### Phase 3 — チャット画面にアバターを立てる
+- [ ] `ChatScreen` の上に `AgentHeader`（アバター・名前・タスクのチップ）。アバターが無い人には出さない
+- [ ] 表情を送信・返答の状態から決める。考え中（`recallStatus` 中も）→ thinking、返答を流している間 → talking
+- [ ] `MessageBubble` に `avatar: AvatarConfig?` を任意で足し、AI の吹き出しの横に出す
+- [ ] チップを押したら通常の会話に戻す。アバターを押したら `AgentProfileSheet`（性格のプロフィール・SST のモデルと更新履歴・アバターの編集）
+
+### Phase 4 — タスクの判断と実行（`AI/Agent/`）
+- [ ] `read_search_intent` に `task`（none / personality / social_skills）と `task_action`（keep / start / end）を足す。呼び出しは 1 回のまま。形を守らない答えなら keep
+- [ ] `ChatViewModel.activeTask`。セッションを切り替えたら、最後のメッセージの `task` から戻す
+- [ ] `AgentTask` プロトコルを作り、`send()` で system と tools をタスクに合わせて組み替える。モデルの今の状態は briefing に添える（キャッシュを壊さないため）
+- [ ] **性格分析** `PersonalityTask` を作る
+  - `KnowledgeGenerator` の材料集めを使う
+  - 結果は `save_personality_profile` で保存する
+- [ ] **SST**（定義をもらってから）`SocialSkillModel` / `SocialSkillModelBuilder` / `SocialSkillTask` を作る
+  - ジャーナルからモデルの v1 を作る
+  - ロールプレイで練習し、終わりに `record_practice` を呼んでモデルの新しい版を保存する
+- [ ] Schema v5: `agent_models`（kind・version・body JSON・source・created_at）を作り、`messages.task` 列を足す。`restore` と `purge` も合わせて直す
+- [ ] `ProFeature` に `personality` / `socialSkills` を足す（`X-Feature` は `ai_chat` のまま）
+
+### 確認
+- [ ] `sh Verification/test-all.sh`
+- [ ] ユニットテスト: v4 → v5 の移行、版の積み上げ、`task` の読み取り、`AvatarConfig(answers:)` の未知の値
+- [ ] UI テスト: 購入直後 → アバター作り（手で作る）→ チャットのヘッダーにアバターと名前が出る
+- [ ] シミュレータ: 性格分析と SST でチップが切り替わる・返答中に口が動く・SST の後にモデルの版が増える
+- [ ] 実機（`wrangler tail` を開いて）: インカメラで撮影 → 判定 → 編集。日本語と英語の両方で表記を見る
+- [ ] `MARKETING.md` に新しい周を足し、`development.md` を §4.10・§5・§8.1 で直す
+
+---
+
+## 最新タスク（2026-10-06〜）
+
+- [x] **ノートの保存先をあとから変えられるようにする**（Folders から開いた .md の画面）（10/6 実装・ユニット / UI テスト通過）
+  - [ ] 画面で目で確かめる: ノートを開く → パスを押す → 別のフォルダで「ここに移す」→ 戻って一覧・カレンダーを見る
+  - いま: タイトルの上に出ているディレクトリ（`{node.path}/{layer}/`）はただの文字で、押しても何も起きない
+    （[NoteDetailScreen.swift](JournalMate/Features/Tree/NoteDetailScreen.swift) の `header`）
+  - これから: そのディレクトリを押すと、Journal タブで新しく書くときと**同じ** `FolderPickerSheet`
+    （[JournalScreen.swift](JournalMate/Features/Journal/JournalScreen.swift) の `destinationRow` から開くもの）が出て、
+    選んだサブフォルダへノートを移す。ピッカーの中でサブフォルダを足すこともそのままできる
+  - 移す処理は既存の `Store.move(_:to:layer:)` を使う（本文と日付はそのまま。カレンダー上の位置は動かない）
+  - ボタンだと分かる見た目にする（Journal タブの保存先の行と同じ、フォルダのアイコン付き）
+  - 移したら「{フォルダ名}に移しました」と出し、ヘッダのディレクトリ・ナビゲーションのタイトルも新しい場所に変える。
+    戻ったときに元のフォルダの一覧から消えていること
+  - 確認: 移した後、カレンダーの絞り込み（PARA）・Folders の両方で新しい場所に出ること。`StoreTests` に「移した後の node_id とファイル名」を足す
 
 ---
 
@@ -417,3 +492,8 @@ Apple Developer Program の承認前でも、ゲートウェイ経由の AI（�
 
 - [x] 無料ユーザーの「月 20 回」をゲートウェイ経由で届ける（2026-09-24）。サーバが回数を数え、
       無料の呼び出しは Haiku に固定、無料枠全体の出費にも天井
+
+
+
+### 2026-10-14(me)
+- [] docs/plans/2026-10-13-avatar-agent-plan.md からアバター作成画面を作ってエミュレートしてみる

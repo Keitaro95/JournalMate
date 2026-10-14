@@ -1,4 +1,7 @@
 import Foundation
+import os
+
+private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "JournalMate", category: "ClaudeClient")
 
 /// Claude Messages API の薄いクライアント。
 /// Swift には公式 SDK がないので `POST /v1/messages` を直接叩く。
@@ -141,10 +144,10 @@ struct ClaudeClient: Sendable {
                         You have reached this month's AI usage limit. It resets at the start of next month (UTC). \
                         Journaling, the calendar, and folders work as usual.
                         """)
-            case .http(let status, let body):
-                if status == 401 { return String(localized: "Authentication failed. Check your subscription status (401)") }
+            case .http(let status, _):
                 if status == 429 { return String(localized: "Rate limit reached. Wait a moment and try again (429)") }
-                return String(localized: "The Claude API returned an error (\(status))\n\(String(body.prefix(300)))")
+                // 本文（JSON）は見せない。中身は `failure(status:body:)` でログにだけ残す。
+                return String(localized: "We couldn't connect to AI right now. Please wait a moment and try again.")
             case .refused(let explanation):
                 return String(localized: "Claude declined to respond to this content. \(explanation)")
             case .noToolCall:
@@ -470,6 +473,7 @@ struct ClaudeClient: Sendable {
         case 429 where error?["scope"] as? String == "total":
             return .trialLimitReached
         default:
+            logger.error("gateway returned \(status): \(text, privacy: .public)")
             return .http(status: status, body: text)
         }
     }

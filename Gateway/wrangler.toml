@@ -13,6 +13,10 @@ routes = [
 APP_ID = "K85V2B647P.app.journalmate.JournalMate"
 ATTEST_MODE = "on"
 
+# 端末の確認に落ちた理由（console.warn）を、wrangler tail を開いていなくても後からダッシュボードで見られるようにする。
+[observability]
+enabled = true
+
 [[durable_objects.bindings]]
 name = "BUDGET"
 class_name = "BudgetLedger"
